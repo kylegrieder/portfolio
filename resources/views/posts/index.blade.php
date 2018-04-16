@@ -6,10 +6,19 @@
         <div class="inner-cover inner">
             <div class="about-me cover-container">
                 @foreach ($posts as $post)
-                    <h1>{{ $post->title }}</h1>
 
-                    <div class="cover-post-body block-with-text">
-                        <p>{{ $post->body}}</p>
+                    <h1>
+                        <a href="/post/{{ $post->id }}">
+                            {{ $post->title }}
+                        </a>
+                    </h1>
+
+                    <div class="cover-post-body">
+                        <p>
+                            <a href="/post/{{ $post->id }}">
+                                {{ $post->body}}
+                            </a>
+                        </p>
                     </div>
                     <br>
                     <br>

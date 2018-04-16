@@ -9,7 +9,18 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::latest()
+        ->filter(request(['month', 'year']))
+        ->orderBy('created_at')
+        ->get();
+
+        $archives = Post::archives();
+
         return view('posts.index', compact('posts'));
+    }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', compact('post'));
     }
 }

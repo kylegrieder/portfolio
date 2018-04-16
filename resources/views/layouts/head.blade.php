@@ -6,7 +6,7 @@
     <title>kyleg.net</title>
 
     <!-- Bootstrap Core Styling -->
-    <link href="css/app.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     <!-- Bootstrap Custom Styling -->
-    <link href="css/cover.css" rel="stylesheet">
+    <link href="/css/cover.css" rel="stylesheet">
 </head>
