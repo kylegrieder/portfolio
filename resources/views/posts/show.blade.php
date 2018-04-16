@@ -7,17 +7,17 @@
             <div class="cover-container blog-post">
 
                 <div class="blog-post-title">
-                    <h1>
-                        {{ $post->title }}
-                    </h1>
+
+                    {!! $post->title !!}
+
                 </div>
 
                 <br />
 
                 <div class="blog-post-body">
-                    <p>
-                        {{ $post->body}}
-                    </p>
+                    
+                    {!! $post->body !!}
+                    
                 </div>
 
             </div>

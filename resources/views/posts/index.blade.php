@@ -7,16 +7,14 @@
             <div class="about-me cover-container">
                 @foreach ($posts as $post)
 
-                    <h1>
                         <a href="/post/{{ $post->id }}">
-                            {{ $post->title }}
+                            {!! $post->title !!}
                         </a>
-                    </h1>
 
                     <div class="cover-post-body">
                         <p>
                             <a href="/post/{{ $post->id }}">
-                                {{ $post->body}}
+                                {!! $post->body !!}
                             </a>
                         </p>
                     </div>

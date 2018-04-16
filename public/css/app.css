@@ -11132,7 +11132,6 @@ samp {
 code {
   padding: .2rem .4rem;
   font-size: 90%;
-  color: #bd4147;
   background-color: #f7f7f9;
   border-radius: .25rem;
 }
@@ -11162,7 +11161,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 90%;
-  color: #292b2c;
+  color: inherit;
 }
 
 pre code {
@@ -11170,7 +11169,6 @@ pre code {
   font-size: inherit;
   color: inherit;
   background-color: transparent;
-  border-radius: 0;
 }
 
 .pre-scrollable {

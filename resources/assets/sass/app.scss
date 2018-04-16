@@ -14,6 +14,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -633,7 +634,6 @@ code,kbd,pre,samp {
 code {
     padding: .2rem .4rem;
     font-size: 90%;
-    color: #bd4147;
     background-color: #f7f7f9;
     border-radius: .25rem
 }
@@ -663,7 +663,7 @@ pre {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 90%;
-    color: #292b2c
+    color: inherit;
 }
 
 pre code {
@@ -671,7 +671,6 @@ pre code {
     font-size: inherit;
     color: inherit;
     background-color: transparent;
-    border-radius: 0
 }
 
 .pre-scrollable {
