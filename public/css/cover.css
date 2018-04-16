@@ -2,14 +2,6 @@
  * Globals
  */
 
-.title {
-  font-family: Comfortaa, sans-serif;
-}
-
-.title :hover {
-  text-decoration: none;
-}
-
 /* Links */
 
 a,
@@ -45,20 +37,6 @@ body {
   color: #fff;
   text-align: center;
   text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-}
-
-.about-me {
-  max-width: 500px;
-  text-align: justify;
-  font-size: 15px;
-}
-
-.image-container img {
-  max-width: 400px;
-  height: auto;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  border-radius: 10px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -146,6 +124,74 @@ body {
   font-weight: bold;
 }
 
+/* styles for '...' */
+
+.cover-post-body {
+  display: --webkit-box;
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative;
+  /* use this value to count block height */
+  line-height: 20px;
+  /* max-height = line-height (1.2) * lines max number (8) */
+  max-height: 120px;
+  /* place for '...' */
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+/* create the ... */
+
+.cover-post-body:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+}
+
+/* hide ... if we have text, which is less than or equal to max lines */
+
+.cover-post-body:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
+
+.about-me {
+  max-width: 500px;
+  text-align: justify;
+  font-size: 15px;
+}
+
+.title {
+  font-family: Comfortaa, sans-serif;
+}
+
+.title :hover {
+  text-decoration: none;
+}
+
+.image-container img {
+  max-width: 400px;
+  height: auto;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border-radius: 10px;
+}
+
 /*
  * Footer
  */
@@ -194,4 +240,6 @@ body {
     width: 42rem;
   }
 }
+
+/* Gradient */
 

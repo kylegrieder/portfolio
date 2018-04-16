@@ -11,7 +11,8 @@
         </div>
 
         <div class="links">
-            <a href="https://twitter.com/kgfromthemv">Blog Posts</a> |
+            <a href="/posts">Blog Posts</a> |
+            <a href="#">Photos</a> |
             <a href="https://twitter.com/kgfromthemv">Twitter</a> |
             <a href="https://github.com/kgfromthemv">GitHub</a>
         </div>
