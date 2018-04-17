@@ -7,9 +7,9 @@
             <div class="cover-container blog-post">
 
                 <div class="blog-post-title">
-
-                    {!! $post->title !!}
-
+                    <h1>
+                        {!! $post->title !!}
+                    </h1>
                 </div>
 
                 <br />

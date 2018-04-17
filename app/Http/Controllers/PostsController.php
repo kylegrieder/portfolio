@@ -24,7 +24,7 @@ class PostsController extends Controller
     {
         $post->title = Markdown::convertToHtml($post->title);
         $post->body = Markdown::convertToHtml($post->body);
-
+        
         return view('posts.show', compact('post'));
     }
 }

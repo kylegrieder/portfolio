@@ -11,6 +11,10 @@ a:hover {
     font-family: Raleway, sans-serif;
 }
 
+.links {
+    font-size: .85rem;
+}
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -124,8 +128,9 @@ body {
     font-weight: bold;
 }
 
-/* styles for '...' */
 .cover-post-body {
+
+      background:linear-gradient(transparent 140px, #677999);
 
     :hover {
         text-decoration: none;
@@ -139,35 +144,12 @@ body {
     /* use this value to count block height */
     line-height: 20px;
     /* max-height = line-height (1.2) * lines max number (8) */
-    max-height: 120px;
-    /* place for '...' */
-    margin-right: -1em;
-    padding-right: 1em;
+    max-height: 180px;  
 }
-/* create the ... */
-.cover-post-body:before {
-    /* points in the end */
-    content: '...';
-    /* absolute position */
-    position: absolute;
-    /* set position to right bottom corner of block */
-    right: 0;
-    bottom: 0;
-}
-/* hide ... if we have text, which is less than or equal to max lines */
-.cover-post-body:after {
-    /* points in the end */
-    content: '';
-    /* absolute position */
-    position: absolute;
-    /* set position to right bottom corner of text */
-    right: 0;
-    /* set width and height */
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    /* bg color = bg color under block */
-    background: white;
+
+.timestamp {
+    opacity: 0.55;
+    font-style: italic;
 }
 
 .about-me {
