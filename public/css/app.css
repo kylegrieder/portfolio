@@ -20500,6 +20500,58 @@ a.bg-inverse:hover {
   text-transform: capitalize !important;
 }
 
+.raleway-light-sm {
+  font-family: Raleway, sans-serif;
+  font-weight: 100;
+  font-size: .85rem;
+}
+
+.raleway-light {
+  font-family: Raleway, sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+.raleway-light-md {
+  font-family: Raleway, sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.raleway-light-lg {
+  font-family: Raleway, sans-serif;
+  font-weight: 100;
+  font-size: 1.85rem;
+}
+
+.comfortaa-light-sm {
+  font-family: Comfortaa, sans-serif;
+  font-weight: 100;
+  font-size: .85rem;
+}
+
+.comfortaa-light {
+  font-family: Comfortaa, sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+.comfortaa-light-md {
+  font-family: Comfortaa, sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.comfortaa-light-lg {
+  font-family: Comfortaa, sans-serif;
+  font-weight: 100;
+  font-size: 1.85rem;
+}
+
+.font-weight-light {
+  font-weight: 100;
+}
+
 .font-weight-normal {
   font-weight: 400;
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center position-ref full-height" id="posts">
         <div class="inner-cover inner">
             <div class="about-me cover-container">
                 @foreach ($posts as $post)
@@ -29,14 +29,3 @@
 
 @endsection
 
-
-<script>
-    var storedtext;
-    $(".timestamp").hover(
-        function() { 
-            storedtext = $(this).html('{{ $post->created_at->diffForHumans() }}');
-            $(this).html('{{ $post->created_at }}'); 
-        },
-        function() { $(this).html(storedtext); }
-        );
-</script>

@@ -11,10 +11,6 @@ a:hover {
   font-family: Raleway, sans-serif;
 }
 
-.links {
-  font-size: .85rem;
-}
-
 /* Custom default button */
 
 .btn-secondary,
@@ -172,12 +168,16 @@ body {
   font-size: 15px;
 }
 
-.title {
+.cover-title {
   font-family: Comfortaa, sans-serif;
 }
 
-.title :hover {
+.cover-title :hover {
   text-decoration: none;
+}
+
+#title {
+  font-size: 3.5rem;
 }
 
 .image-container img {

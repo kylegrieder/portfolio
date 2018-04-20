@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/post/{post}', 'PostsController@show');
+
+Route::get('/photos', 'PhotosController@index');
+Route::get('/photos/{photo}', 'PhotosController@show');
