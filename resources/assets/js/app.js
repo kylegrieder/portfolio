@@ -17,6 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+import AutoRotate from 'vue-jpeg-auto-rotation'
+Vue.use(AutoRotate)
+
 const app = new Vue({
-    el: '#app'
+    el: '#app', 
+    components: {
+    	AutoRotate
+    }
 });

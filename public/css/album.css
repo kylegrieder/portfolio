@@ -35,8 +35,10 @@ body {
 }
 
 .card {
-  float: left;
+  float: center;
   width: 30%;
+  min-width: 320px;
+  height: auto;
   padding: .75rem;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -45,11 +47,15 @@ body {
   border: 0;
 }
 
-.card > img {
-  margin-bottom: .75rem;
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  image-orientation: from-image;
 }
 
 .card-text {
+  margin-top: .75rem;
   font-size: 85%;
 }
 
