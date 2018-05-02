@@ -2,7 +2,10 @@
 <html lang="{{ app()->getLocale() }}">
     @include('layouts.head')
     <body>
-        @include('nav.masthead')
-        @yield('content')
+    	<div id="app">
+	        @include('nav.masthead')
+	        @yield('content')
+    	</div>
+    <script src="/js/app.js"></script>
     </body>
 </html>

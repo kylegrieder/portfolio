@@ -10,6 +10,16 @@ class PostsController extends Controller
 {
     public function index()
     {
+        return view('posts.index');
+    }
+
+    public function show(Post $post)
+    {   
+        return view('posts.show');
+    }
+
+    public function retrievePosts()
+    {
         $posts = Post::latest()
         ->filter(request(['month', 'year']))
         ->orderBy('created_at')
@@ -17,14 +27,14 @@ class PostsController extends Controller
 
         $archives = Post::archives();
 
-        return view('posts.index', compact('posts'));
+        return $posts;
     }
 
-    public function show(Post $post)
+    public function retrievePost(Post $post)
     {
-        $post->title = Markdown::convertToHtml($post->title);
-        $post->body = Markdown::convertToHtml($post->body);
-        
-        return view('posts.show', compact('post'));
+        $post = Post::where('id', $post->id)
+        ->get();
+
+        return $post;
     }
 }

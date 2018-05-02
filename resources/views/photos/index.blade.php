@@ -17,7 +17,7 @@
 
 			<div class="card">
 				<div class="{{ $photo['orientation']}}">
-					<auto-rotate><img src="{{ $photo['url'] }}" alt="Card image cap"></auto-rotate>
+					<auto-rotate><img src="{{ $photo['url'] }}" alt="Card image cap"/></auto-rotate>
 				</div>
 
 				@if ($photo->description)
@@ -31,18 +31,4 @@
 		</div>
 	</div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-<script>
-	
-	import AutoRotate from 'vue-jpeg-auto-rotation'
-	Vue.use(AutoRotate)
-
-	var app = new Vue({	
-		el: '#photos', 
-		components: {
-			'auto-rotate': AutoRotate
-		};
-	});
-</script>
 @endsection

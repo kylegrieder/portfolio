@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('layouts.about');
 });
 
-Route::get('/posts', 'PostsController@index');
-Route::get('/post/{post}', 'PostsController@show');
+Route::get('/blog', 'PostsController@index');
+Route::get('/blog/{post}', 'PostsController@show');
+
+Route::get('/posts', 'PostsController@retrievePosts');
+Route::get('/post/{post}', 'PostsController@retrievePost');
 
 Route::get('/photos', 'PhotosController@index');
 Route::get('/photos/{photo}', 'PhotosController@show');

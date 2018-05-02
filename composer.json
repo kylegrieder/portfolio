@@ -10,7 +10,8 @@
         "graham-campbell/markdown": "^10.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "league/flysystem-aws-s3-v3": "~1.0"
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "zachleigh/laravel-vue-generators": "^0.2.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

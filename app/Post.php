@@ -5,8 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Post extends Model
 {
+    protected $fillable = [
+        'title', 
+        'body'
+    ];
+
     public static function archives() {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
         ->groupBy('year', 'month')

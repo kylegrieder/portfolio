@@ -8,10 +8,10 @@
         </div>
 
         <div class="raleway-light">
-            <a href="/posts">Blog Posts</a> |
-            <a href="/photos">Photos</a> |
-            <a href="https://twitter.com/kgfromthemv" target="_blank">Twitter</a> |
-            <a href="https://instagram.com/kgfromthemv" target="_blank">Instagram</a> |
+            <a href="/blog">Blog</a> •
+            <a href="/photos">Photos</a> •
+            <a href="https://twitter.com/kgfromthemv" target="_blank">Twitter</a> •
+            <a href="https://instagram.com/kgfromthemv" target="_blank">Instagram</a> •
             <a href="https://github.com/kgfromthemv" target="_blank">GitHub</a>
         </div>
     </div>
