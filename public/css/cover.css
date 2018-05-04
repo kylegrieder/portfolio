@@ -126,6 +126,8 @@ body {
 
 .cover-post-body {
   background: linear-gradient(transparent 140px, #677999);
+  margin-top: 10px;
+  margin-bottom: 20px;
   display: --webkit-box;
   /* hide text if it more than N lines  */
   overflow: hidden;
@@ -144,12 +146,17 @@ body {
 .timestamp {
   opacity: 0.55;
   font-style: italic;
+  display: inline;
 }
 
 .about-me {
   max-width: 500px;
   text-align: justify;
   font-size: 15px;
+}
+
+.about-me h1 {
+  margin-bottom: -4px;
 }
 
 .blog-post {

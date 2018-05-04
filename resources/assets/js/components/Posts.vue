@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="post in store.posts" :key="post.id">
+		<post v-for="post in store.posts" :post="post" :key="post.id">
 			<div slot="title">
 				<h1>
 					<a :href="'/blog/' + post.id">
@@ -8,9 +8,10 @@
 					</a>
 				</h1>
 			</div>
-			<div slot="timestamp">
+			<div class="timestamp">
+				<template slot="timestamp">
+				</template>
 			</div>
-			<br>
 			<div slot="body">
 				<div class="cover-post-body">
 					<a :href="'/blog/' + post.id">
@@ -18,9 +19,7 @@
 					</a>
 				</div>
 			</div>
-			<br>
-			<br>
-		</div>
+		</post>
 	</div>
 </template>
 
@@ -31,6 +30,10 @@ export default {
 	components: {
 		Post
 	},
+
+	methods: {
+	},
+
 	data() {
 		return {
 			store
