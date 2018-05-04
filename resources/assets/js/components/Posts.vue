@@ -28,7 +28,7 @@ import store from '../store.js'
 import Post from './Post.vue'
 export default {
 	components: {
-		Post
+		Post,
 	},
 
 	methods: {
@@ -39,5 +39,13 @@ export default {
 			store
 		}
 	}, 
+
+	mounted() {
+		if (store.posts.length == 0) {
+	    	axios.get('/posts').then( response => {
+				store.posts = response.data
+			})
+		}
+	}
 }
 </script>

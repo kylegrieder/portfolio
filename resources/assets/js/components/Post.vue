@@ -44,7 +44,7 @@ export default {
 	data() {
 		return {
 			timeFromNow: true,
-			post: this.initialPost
+			post: {}
 		}
 	},
 
@@ -52,14 +52,14 @@ export default {
 	},
 
 	mounted() {
-		var id = _.last( window.location.pathname.split('/'));
-    	axios.get('/post/' + id).then( response => {
-    		if (this.initialPost) {
-    			this.post = this.initialPost
-    		} else {
+		if (this.initialPost) {
+			this.post = this.initialPost
+		} else {
+			var id = _.last( window.location.pathname.split('/'));
+	    	axios.get('/post/' + id).then( response => {
 				this.post = _.first(response.data)
-    		}
-		});
+			});
+		}
 	}
 }
 </script>

@@ -25,8 +25,8 @@ class PostsController extends Controller
         ->orderBy('created_at')
         ->get();
 
-        $archives = Post::archives();
-
+        // $archives = Post::archives();
+        
         return $posts;
     }
 

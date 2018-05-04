@@ -27,6 +27,7 @@
         "imagesloaded": "^4.1.4",
         "moment": "^2.22.1",
         "npm": "^5.8.0",
+        "underscore": "^1.9.0",
         "vue-jpeg-auto-rotation": "^1.0.1"
     }
 }
