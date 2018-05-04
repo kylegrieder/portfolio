@@ -19,7 +19,7 @@ Route::get('/blog', 'PostsController@index');
 Route::get('/blog/{post}', 'PostsController@show');
 
 Route::get('/posts', 'PostsController@retrievePosts');
-Route::get('/post/{post}', 'PostsController@retrievePost');
+Route::get('/post/{postId}', 'PostsController@retrievePost');
 
 Route::get('/photos', 'PhotosController@index');
 Route::get('/photos/{photo}', 'PhotosController@show');

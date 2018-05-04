@@ -3,7 +3,7 @@
 		<slot name="title"> 
 			<div class="blog-post-title">
 				<h1>
-					{{ post.title }}
+					{{ this.post.title }}
 				</h1>
 			</div>
 		</slot>
@@ -14,7 +14,7 @@
 		</slot>
 		<slot name="body"> 
 			<div class="blog-post-body">
-				{{ post.body }}
+				{{ this.post.body }}
 			</div>
 		</slot>
 	</div>	
@@ -24,7 +24,7 @@
 import store from '../store.js'
 export default {
 	props: [
-		'post'
+		'initialPost', 
 	],
 
 	computed: {
@@ -44,8 +44,7 @@ export default {
 	data() {
 		return {
 			timeFromNow: true,
-
-			// post: []
+			post: this.initialPost
 		}
 	},
 
@@ -53,16 +52,14 @@ export default {
 	},
 
 	mounted() {
-  //   	axios.get('/post/{post}').then( response => {
-		// 	this.post = response.data
-		// });
+		var id = _.last( window.location.pathname.split('/'));
+    	axios.get('/post/' + id).then( response => {
+    		if (this.initialPost) {
+    			this.post = this.initialPost
+    		} else {
+				this.post = _.first(response.data)
+    		}
+		});
 	}
-	// computed: {
-	// 	index: function() {
-	// 		var index = store.posts.map(function(array) {
-	// 			return array.id
-	// 		}).indexOf(postId);
-	// 	}
-	// }
 }
 </script>

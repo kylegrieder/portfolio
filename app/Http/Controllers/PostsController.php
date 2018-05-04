@@ -15,8 +15,7 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {   
-        $postId = $post->id;
-        return view('posts.show', compact('postId'));
+        return view('posts.show');
     }
 
     public function retrievePosts()
@@ -31,9 +30,9 @@ class PostsController extends Controller
         return $posts;
     }
 
-    public function retrievePost(Post $post)
+    public function retrievePost($postId)
     {
-        $post = Post::where('id', $post->id)
+        $post = Post::where('id', $postId)
         ->get();
 
         return $post;

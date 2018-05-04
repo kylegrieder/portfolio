@@ -171,11 +171,16 @@ body {
 .blog-post-title {
     text-align: left;
     font-family: Raleway, sans-serif;
+
+    h1 {
+        margin-bottom: -4px;
+    }
 }
 
 .blog-post-body {
     max-width: 800px;
     font-size: 15px;
+    margin-top: 10px;
 }
 
 .cover-title {
