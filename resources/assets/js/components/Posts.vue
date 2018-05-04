@@ -1,26 +1,22 @@
 <template>
 	<div>
-		<div v-for="post in posts" :key="post.id">
-			<div>
+		<div v-for="post in store.posts" :key="post.id">
+			<div slot="title">
 				<h1>
 					<a :href="'/blog/' + post.id">
 						{{ post.title }}
 					</a>
 				</h1>
 			</div>
-			<div class="timestamp" @mouseover="hover" @mouseleave="hover">
-				<div v-if="timeFormat">
-					{{ fromNow(post.created_at) }}
-				</div>
-				<div v-if="!timeFormat">
-					{{ timestamp(post.created_at) }}
-				</div>
+			<div slot="timestamp">
 			</div>
 			<br>
-			<div class="cover-post-body">
-				<a :href="'/blog/' + post.id">
-					{{ post.body }}
-				</a>
+			<div slot="body">
+				<div class="cover-post-body">
+					<a :href="'/blog/' + post.id">
+						{{ post.body }}
+					</a>
+				</div>
 			</div>
 			<br>
 			<br>
@@ -29,35 +25,16 @@
 </template>
 
 <script>
+import store from '../store.js'
+import Post from './Post.vue'
 export default {
-	methods: {
-
-		fromNow(time) {
-			return moment.utc(time).local().fromNow();
-		},
-		timestamp(time) {
-			return moment.utc(time).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
-		},
-
-		hover() {
-			this.timeFormat = !this.timeFormat
-		}
+	components: {
+		Post
 	},
-
 	data() {
 		return {
-			posts: [], 
-			timeFormat: true
+			store
 		}
 	}, 
-
-	mounted() {
-		axios.get('/posts').then( response => {
-			this.posts = response.data
-			this.posts.forEach(function(post) {
-				post.timeFormat = true;
-			})
-		})
-	}
 }
 </script>

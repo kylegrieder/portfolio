@@ -1,61 +1,66 @@
 <template>
 	<div>
-		<slot name="title">
+		<div name="title" class="blog-post-title">
 			<h1>
-				<a :href="'/blog/' + post.id">
-					{{ post.title }}
-				</a>
+				<!-- {{ this.title }} -->
 			</h1>
-		</slot>
-		<slot name="timestamp" class="timestamp" @mouseover="hover" @mouseleave="hover">
-			{{ post.displayTime }}
-		</slot>
+		</div>
+		<div name="timestamp" class="timestamp" @mouseover="hover" @mouseleave="hover">
+			<!-- {{ this.displayTime }} -->
+		</div>
 		<br>
-		<slot name="body" class="cover-post-body">
-			<a :href="'/blog/' + post.id">
-				{{ post.body }}
-			</a>
-		</slot>
+		<div name="body" class="blog-post-body">
+			<!-- {{ this.body }} -->
+		</div>
 		<br />
 		<br />
 	</div>	
 </template>
 
 <script>
+import store from '../store.js'
 export default {
 	props: [
-	'post'
+		'postId'
 	],
 
 	methods: {
 		hover() {
-			this.timestampFormat = !this.timestampFormat;
+			this.timeFromNow = !this.timeFromNow;
 		}
 	},
 
 	data() {
 		return {
-			id: this.post.id,
-			title: this.post.title,
-			body: this.post.body,
-			time: this.post.created_at,
+			id: postId,
+			// title: '',
+			// body: this.post.body,
+			// displayTime: this.post.displayTime,
+			// timeFromNow: true,
 		}
 	},
 
-	created() {
-		Event.$on('mouseover', function() {
-			hover();
-		}); 
-	},
+	// mounted() {
+ //    	axios.get('/post/{post}').then( response => {
+	// 		this.posts = response.data
+	// 	})
+	// }
+	// computed: {
+	// 	index: function() {
+	// 		var index = store.posts.map(function(array) {
+	// 			return array.id
+	// 		}).indexOf(postId);
+	// 	}
+	// }
 	
-	computed: {
-		displayTime: function () {
-			if (this.timestampFormat) {
-				return this.post.displayTime = moment.utc(this.post.created_at).local().fromNow();
-			} else {
-				return this.post.displayTime = moment.utc(this.post.created_at).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
-			}
-		},
-	},
+	// computed: {
+	// 	displayTime: function () {
+	// 		if (this.timestampFormat) {
+	// 			return this.post.displayTime = moment.utc(this.post.created_at).local().fromNow();
+	// 		} else {
+	// 			return this.post.displayTime = moment.utc(this.post.created_at).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
+	// 		}
+	// 	},
+	// },
 }
 </script>

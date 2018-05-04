@@ -15,7 +15,8 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {   
-        return view('posts.show');
+        $postId = $post->id;
+        return view('posts.show', compact('postId'));
     }
 
     public function retrievePosts()

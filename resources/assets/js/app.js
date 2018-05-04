@@ -30,7 +30,7 @@ window.Event = new Vue();
 import AutoRotate from 'vue-jpeg-auto-rotation'
 import Posts from './components/Posts.vue'
 import Post from './components/Post.vue'
-
+import store from './store.js'
 
 const app = new Vue({
     el: '#app', 
@@ -39,5 +39,13 @@ const app = new Vue({
     	AutoRotate, 
         Posts, 
         Post
+    }, 
+
+    data: store,
+
+    mounted() {
+    	axios.get('/posts').then( response => {
+			this.posts = response.data
+		})
     }
 });
