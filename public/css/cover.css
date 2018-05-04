@@ -124,31 +124,6 @@ body {
   font-weight: bold;
 }
 
-.cover-post-body {
-  background: linear-gradient(transparent 140px, #677999);
-  margin-top: 10px;
-  margin-bottom: 20px;
-  display: --webkit-box;
-  /* hide text if it more than N lines  */
-  overflow: hidden;
-  /* for set '...' in absolute position */
-  position: relative;
-  /* use this value to count block height */
-  line-height: 20px;
-  /* max-height = line-height (1.2) * lines max number (8) */
-  max-height: 180px;
-}
-
-.cover-post-body :hover {
-  text-decoration: none;
-}
-
-.timestamp {
-  opacity: 0.55;
-  font-style: italic;
-  display: inline;
-}
-
 .about-me {
   max-width: 500px;
   text-align: justify;
@@ -157,27 +132,6 @@ body {
 
 .about-me h1 {
   margin-bottom: -4px;
-}
-
-.blog-post {
-  max-width: 800px;
-  text-align: justify;
-  font-size: 15px;
-}
-
-.blog-post-title {
-  text-align: left;
-  font-family: Raleway, sans-serif;
-}
-
-.blog-post-title h1 {
-  margin-bottom: -4px;
-}
-
-.blog-post-body {
-  max-width: 800px;
-  font-size: 15px;
-  margin-top: 10px;
 }
 
 .cover-title {

@@ -9,6 +9,7 @@
 	<link href="/css/app.css" rel="stylesheet">
 	<!-- Bootstrap Custom Styling -->
 	<link href="/css/cover.css" rel="stylesheet">
+	<link href="/css/post.css" rel="stylesheet">
 	<link href="/css/album.css" rel="stylesheet">
 
 	<script>
