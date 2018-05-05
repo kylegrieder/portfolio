@@ -59,7 +59,11 @@ export default {
 	    	axios.get('/post/' + id).then( response => {
 				this.post = _.first(response.data)
 			});
+<<<<<<< Updated upstream
 		}
+=======
+	    }
+>>>>>>> Stashed changes
 	}
 }
 </script>

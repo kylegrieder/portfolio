@@ -15,11 +15,22 @@ Route::get('/', function () {
     return view('layouts.about');
 });
 
+/**
+ * Resource functions - return views
+ */
+// blog posts
 Route::get('/blog', 'PostsController@index');
 Route::get('/blog/{post}', 'PostsController@show');
-
-Route::get('/posts', 'PostsController@retrievePosts');
-Route::get('/post/{postId}', 'PostsController@retrievePost');
-
+// photos
 Route::get('/photos', 'PhotosController@index');
 Route::get('/photos/{photo}', 'PhotosController@show');
+
+/**
+ * Api functions - return objects/arrays
+ */
+// blog posts
+Route::get('/posts', 'PostsController@getPosts');
+Route::get('/post/{postId}', 'PostsController@getPost');
+// photos
+Route::get('/pics', 'PhotosController@getPhotos');
+Route::get('/pic/{photo}', 'PhotosController@getPhoto');

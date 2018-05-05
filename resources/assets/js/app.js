@@ -33,7 +33,10 @@ import Posts from './components/Posts.vue'
 import Post from './components/Post.vue'
 import Photos from './components/Photos.vue'
 import Photo from './components/Photo.vue'
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import store from './store.js'
 
 const app = new Vue({
@@ -42,9 +45,14 @@ const app = new Vue({
     components: {
     	AutoRotate, 
         Posts, 
-        Post
+        Post, 
+        Photos, 
+        Photo
     }, 
+<<<<<<< Updated upstream
 
     mounted() {
     }
+=======
+>>>>>>> Stashed changes
 });

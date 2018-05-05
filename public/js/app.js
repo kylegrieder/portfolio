@@ -5023,7 +5023,12 @@ module.exports = defaults;
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
+<<<<<<< Updated upstream
 	posts: []
+=======
+	posts: [],
+	photos: []
+>>>>>>> Stashed changes
 });
 
 /***/ }),
@@ -30482,6 +30487,7 @@ window.Event = new Vue();
 
 
 
+<<<<<<< Updated upstream
 
 
 
@@ -30496,6 +30502,20 @@ var app = new Vue({
     },
 
     mounted: function mounted() {}
+=======
+
+
+var app = new Vue({
+    el: '#app',
+
+    components: {
+        AutoRotate: __WEBPACK_IMPORTED_MODULE_1_vue_jpeg_auto_rotation___default.a,
+        Posts: __WEBPACK_IMPORTED_MODULE_2__components_Posts_vue___default.a,
+        Post: __WEBPACK_IMPORTED_MODULE_3__components_Post_vue___default.a,
+        Photos: __WEBPACK_IMPORTED_MODULE_4__components_Photos_vue___default.a,
+        Photo: __WEBPACK_IMPORTED_MODULE_5__components_Photo_vue___default.a
+    }
+>>>>>>> Stashed changes
 });
 
 /***/ }),
@@ -59360,15 +59380,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	data: function data() {
 		return {
-			store: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* default */]
+			posts: posts
 		};
 	},
 	mounted: function mounted() {
+<<<<<<< Updated upstream
 		if (__WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* default */].posts.length == 0) {
 			axios.get('/posts').then(function (response) {
 				__WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* default */].posts = response.data;
 			});
 		}
+=======
+		var _this = this;
+
+		axios.get('/posts').then(function (response) {
+			_this.posts = response.data;
+		});
+>>>>>>> Stashed changes
 	}
 });
 
@@ -59500,7 +59528,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.store.posts, function(post) {
+    _vm._l(_vm.posts, function(post) {
       return _c("post", { key: post.id, attrs: { initialPost: post } }, [
         _c("div", { attrs: { slot: "title" }, slot: "title" }, [
           _c("h1", [
@@ -59571,6 +59599,7 @@ if (false) {
 /* 183 */,
 /* 184 */,
 /* 185 */
+<<<<<<< Updated upstream
 /***/ (function(module, exports) {
 
 throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/kylegrieder/dev/portfolio/resources/assets/js/components/Photo.vue'");
@@ -59580,6 +59609,273 @@ throw new Error("Module build failed: Error: ENOENT: no such file or directory, 
 /***/ (function(module, exports) {
 
 throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/kylegrieder/dev/portfolio/resources/assets/js/components/Photos.vue'");
+=======
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(138)
+/* script */
+var __vue_script__ = __webpack_require__(188)
+/* template */
+var __vue_template__ = __webpack_require__(189)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Photo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-14d95d8b", Component.options)
+  } else {
+    hotAPI.reload("data-v-14d95d8b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(138)
+/* script */
+var __vue_script__ = __webpack_require__(187)
+/* template */
+var __vue_template__ = __webpack_require__(190)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Photos.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ec041610", Component.options)
+  } else {
+    hotAPI.reload("data-v-ec041610", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 187 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Photo_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Photo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Photo_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	components: {
+		Photo: __WEBPACK_IMPORTED_MODULE_1__Photo_vue___default.a
+	},
+
+	methods: {},
+
+	data: function data() {
+		return {
+			store: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* default */]
+		};
+	},
+	mounted: function mounted() {
+		var _this = this;
+
+		axios.get('/pics').then(function (response) {
+			_this.store = response.data;
+		});
+	}
+});
+
+/***/ }),
+/* 188 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_js__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._t("title", [
+        _c("div", { staticClass: "blog-post-title" }, [
+          _c("h1", [
+            _vm._v("\n\t\t\t\t" + _vm._s(this.post.title) + "\n\t\t\t")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._t("timestamp", [
+        _c(
+          "div",
+          {
+            staticClass: "timestamp",
+            on: { mouseover: _vm.mouseover, mouseleave: _vm.mouseover }
+          },
+          [_vm._v("\n\t\t\t" + _vm._s(this.timeFormat) + "\n\t\t")]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._t("body", [
+        _c("div", { staticClass: "blog-post-body" }, [
+          _vm._v("\n\t\t\t" + _vm._s(this.post.body) + "\n\t\t")
+        ])
+      ])
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-14d95d8b", module.exports)
+  }
+}
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container", attrs: { id: "photos" } }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.store.photos, function(photo) {
+          return _c("div", { staticClass: "card" }, [
+            _c("div", { class: photo.orientation }, [
+              _c("img", { attrs: { src: photo.url, alt: "Card image cap" } })
+            ]),
+            _vm._v(" "),
+            photo.description
+              ? _c("div", [
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(photo.description))
+                  ])
+                ])
+              : _vm._e()
+          ])
+        })
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ec041610", module.exports)
+  }
+}
+>>>>>>> Stashed changes
 
 /***/ })
 /******/ ]);

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<post v-for="post in store.posts" :initialPost="post" :key="post.id">
+		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
 					<a :href="'/blog/' + post.id">
@@ -36,8 +36,9 @@ export default {
 
 	data() {
 		return {
-			store
+			posts
 		}
+<<<<<<< Updated upstream
 	}, 
 
 	mounted() {
@@ -46,6 +47,14 @@ export default {
 				store.posts = response.data
 			})
 		}
+=======
+	},
+
+	mounted() {
+		axios.get('/posts').then(response => {
+			this.posts = response.data
+		})
+>>>>>>> Stashed changes
 	}
 }
 </script>

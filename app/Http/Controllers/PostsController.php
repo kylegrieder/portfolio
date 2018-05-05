@@ -18,7 +18,7 @@ class PostsController extends Controller
         return view('posts.show');
     }
 
-    public function retrievePosts()
+    public function getPosts()
     {
         $posts = Post::latest()
         ->filter(request(['month', 'year']))
@@ -30,7 +30,7 @@ class PostsController extends Controller
         return $posts;
     }
 
-    public function retrievePost($postId)
+    public function getPost($postId)
     {
         $post = Post::where('id', $postId)
         ->get();
