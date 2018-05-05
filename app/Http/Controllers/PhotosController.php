@@ -9,18 +9,13 @@ use Illuminate\Support\Facades\Storage;
 
 class PhotosController extends Controller
 {
-
+	/** 
+	 * Resource Functions
+	 */
+	
 	public function index()
 	{
-
-		$photos = Photo::latest()
-		->filter(request(['month', 'year']))
-		->orderBy('created_at')
-		->get();
-
-		$archives = Photo::archives();
-
-		return view('photos.index', compact('photos'));
+		return view('photos.index');
 	}
 
 	public function show(Photo $Photo)
@@ -38,5 +33,21 @@ class PhotosController extends Controller
 
 		//returns a bool
 		// return [Storage::disk('s3')->put('uploads', $myFile, 'public')];
+	}
+
+	/** 
+	 * Other functions
+	 */
+
+	public function getPhotos()
+	{
+
+		$photos = Photo::latest()
+		->filter(request(['month', 'year']))
+		->orderBy('created_at')
+		->get();
+
+		// $archives = Photo::archives();
+		return $photos;
 	}
 }
