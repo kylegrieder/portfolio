@@ -9,6 +9,7 @@ a:focus,
 a:hover {
     color: #fff;
     font-family: Raleway, sans-serif;
+    cursor: pointer;
 }
 
 /* Custom default button */
@@ -22,6 +23,22 @@ a:hover {
     border: .05rem solid #fff;
 }
 
+/**
+ * Custom stuff I added
+ */
+
+.row-center {
+    margin-top: 6px;
+}
+
+.svg {
+    display: inline; 
+    max-height: 1.25rem;
+    width: auto;
+    filter: invert(100%);
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
 /*
  * Base structure

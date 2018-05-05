@@ -31,12 +31,7 @@ import AutoRotate from 'vue-jpeg-auto-rotation'
 
 import Posts from './components/Posts.vue'
 import Post from './components/Post.vue'
-import Photos from './components/Photos.vue'
-import Photo from './components/Photo.vue'
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 import store from './store.js'
 
 const app = new Vue({
@@ -46,13 +41,5 @@ const app = new Vue({
     	AutoRotate, 
         Posts, 
         Post, 
-        Photos, 
-        Photo
     }, 
-<<<<<<< Updated upstream
-
-    mounted() {
-    }
-=======
->>>>>>> Stashed changes
 });

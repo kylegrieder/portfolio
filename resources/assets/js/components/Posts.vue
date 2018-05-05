@@ -38,23 +38,12 @@ export default {
 		return {
 			posts
 		}
-<<<<<<< Updated upstream
 	}, 
-
-	mounted() {
-		if (store.posts.length == 0) {
-	    	axios.get('/posts').then( response => {
-				store.posts = response.data
-			})
-		}
-=======
-	},
 
 	mounted() {
 		axios.get('/posts').then(response => {
 			this.posts = response.data
-		})
->>>>>>> Stashed changes
+		});
 	}
 }
 </script>
