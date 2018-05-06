@@ -27,8 +27,6 @@ window.Event = new Vue();
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-import AutoRotate from 'vue-jpeg-auto-rotation'
-
 import Posts from './components/Posts.vue'
 import Post from './components/Post.vue'
 
@@ -38,8 +36,17 @@ const app = new Vue({
     el: '#app', 
 
     components: {
-    	AutoRotate, 
         Posts, 
         Post, 
-    }, 
+    },
+
+    data: {
+    	store
+    },
+
+    mounted() {
+		axios.get('/posts').then(response => {
+			store.posts = response.data
+		});
+    }
 });
