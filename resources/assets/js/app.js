@@ -7,12 +7,6 @@
 
 require('./bootstrap');
 
-window.axios = require('axios');
-window.axios.defaults.headers.common = {
-    'X-Requested-With': 'XMLHttpRequest',
-    'X-CSRF-TOKEN': window.Laravel.csrfToken
-};
-
 window.Vue = require('vue');
 
 window.moment = require('moment');
@@ -29,6 +23,8 @@ window.Event = new Vue();
  */
 import Posts from './components/Posts.vue'
 import Post from './components/Post.vue'
+import Photos from './components/Photos.vue'
+import Photo from './components/Photo.vue'
 
 import store from './store.js'
 
@@ -38,6 +34,8 @@ const app = new Vue({
     components: {
         Posts, 
         Post, 
+        Photos, 
+        Photo, 
     },
 
     data: {

@@ -1,13 +1,13 @@
-@extends('layouts.index');
+@extends('layouts.index')
 
 @section('content')
 
-<section class="jumbotron text-center">
+<div class="jumbotron text-center">
 	<div class="container">
-		<h1 class="jumbotron-heading">Album example</h1>
-		<p class="lead text-white raleway-light">Here's some pictures of me and my family, and probably some tech or video game stuff. Basically its a group of things I care about.</p>
+		{{-- <h1 class="jumbotron-heading">Album example</h1> --}}
+		<p class="lead text-white raleway-light">Here's some pictures of me, my family, and probably some tech stuff.</p>
 	</div>
-</section>
+</div>
 
 <div class="album text-muted">
 	<photos></photos>
