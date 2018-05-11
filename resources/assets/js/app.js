@@ -8,13 +8,14 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
 window.moment = require('moment');
+window.Event = new Vue();
 
 import dateFormats from './constants/dateFormats'
-window.DATE_FORMATS = dateFormats
+    window.DATE_FORMATS = dateFormats
+import AutoRotate from 'vue-jpeg-auto-rotation'
+    Vue.use(AutoRotate)
 
-window.Event = new Vue();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,6 +37,7 @@ const app = new Vue({
         Post, 
         Photos, 
         Photo, 
+        AutoRotate
     },
 
     data: {
