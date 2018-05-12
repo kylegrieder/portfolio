@@ -35,6 +35,12 @@ export default {
 		return {
 			store
 		}
+	}, 
+
+	mounted() {
+		axios.get('/posts').then(response => {
+			store.posts = response.data
+		});
 	}
 }
 </script>
