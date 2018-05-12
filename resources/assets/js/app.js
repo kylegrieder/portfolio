@@ -26,8 +26,6 @@ import Post from './components/Post.vue'
 import Photos from './components/Photos.vue'
 import Photo from './components/Photo.vue'
 
-import store from './store.js'
-
 const app = new Vue({
     el: '#app', 
 
@@ -39,12 +37,5 @@ const app = new Vue({
     },
 
     data: {
-    	store
-    },
-
-    mounted() {
-		axios.get('/posts').then(response => {
-			store.posts = response.data
-		});
     }
 });

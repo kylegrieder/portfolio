@@ -34,7 +34,7 @@ export default {
 
 	mounted() {
 		axios.get('/pics').then(response => {
-			this.store = response.data
+			store.photos = response.data
 		})
 	}
 }
