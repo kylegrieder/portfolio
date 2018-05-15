@@ -13,9 +13,6 @@ window.Event = new Vue();
 
 import dateFormats from './constants/dateFormats'
     window.DATE_FORMATS = dateFormats
-import AutoRotate from 'vue-jpeg-auto-rotation'
-    Vue.use(AutoRotate)
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,8 +31,7 @@ const app = new Vue({
         Posts, 
         Post, 
         Photos, 
-        Photo, 
-        AutoRotate
+        Photo,
     },
 
     data: {

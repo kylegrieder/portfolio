@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="card" v-for="photo in store.photos">
 					<div :class="photo.orientation">
-						<a :href="photo.url" target="_blank"><auto-rotate><img :src="photo.url"></img></auto-rotate></a>
+						<a :href="photo.url" target="_blank"><img :src="photo.url"></img></a>
 					</div>
 					<div v-if="photo.description">
 						<p class="card-text">{{ photo.description }}</p>
