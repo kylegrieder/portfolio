@@ -1,4 +1,10 @@
 export default {
-	posts: [], 
-	photos: []
+	state: {
+        posts: [],
+	   photos: []
+    },
+    getters: {
+    },
+    actions: {
+    }
 }

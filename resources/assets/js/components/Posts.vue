@@ -35,7 +35,7 @@ export default {
 		return {
 			store
 		}
-	}, 
+	},
 
 	mounted() {
 		axios.get('/posts').then(response => {
