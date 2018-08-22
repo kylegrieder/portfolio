@@ -30,13 +30,13 @@ import Photo from './components/Photo.vue'
 import store from './store.js'
 
 const app = new Vue({
-    el: '#app', 
+    el: '#app',
 
     components: {
-        Posts, 
-        Post, 
-        Photos, 
-        Photo, 
+        Posts,
+        Post,
+        Photos,
+        Photo,
         AutoRotate
     },
 
