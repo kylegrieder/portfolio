@@ -6,10 +6,6 @@ require('./bootstrap')
 // new Vue instance for event emitting and listening.
 window.events = new Vue()
 
-// exif photo data
-var exif = require('exif-js')
-window.EXIF = exif;
-
 // moment for date stuffs
 window.moment = require('moment')
 // date formats constant
@@ -17,10 +13,20 @@ import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats
 
 // Vuex
-import Store from './store.js'
-const store = new Vuex.Store(Store)
+import store from './store.js'
 
-import Components from './components'
+// component registration
+const files = require.context('./components', true, /\.vue$/)
+files.keys().forEach((key) => {
+
+    let fileName = '';
+    let path = key.replace(/(\.\/|\.vue)/g, '')
+
+    fileName = _.last(path.split('/')) // necessary for nested folders to work.
+    console.log('fileName', fileName)
+    console.log('path', path)
+    Vue.component(fileName, require('./components/' + path).default)
+})
 
 const app = new Vue({
     el: '#app',

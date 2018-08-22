@@ -25,18 +25,12 @@
 
 <script>
 import store from '../store.js'
-import Post from './Post.vue'
 export default {
-	components: {
-		Post,
-	},
-
 	data() {
 		return {
 			store
 		}
 	},
-
 	mounted() {
 		axios.get('/posts').then(response => {
 			store.posts = response.data

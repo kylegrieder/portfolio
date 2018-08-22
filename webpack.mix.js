@@ -16,3 +16,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
    	.sass('resources/assets/sass/cover.scss', 'public/css')
    	.sass('resources/assets/sass/album.scss', 'public/css')
    	.sass('resources/assets/sass/post.scss', 'public/css')
+
+
+if (process.env.NODE_ENV !== 'test') {
+    mix.extract(['vue','vuex', 'jquery', 'popper.js', 'bootstrap', 'moment'])
+}

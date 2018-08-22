@@ -5,7 +5,7 @@
     	<div id="app">
 	        @include('nav.masthead')
 	        @yield('content')
-    	</div>
-    <script src="/js/app.js"></script>
+        </div>
+    <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

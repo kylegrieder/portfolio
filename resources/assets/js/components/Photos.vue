@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="card" v-for="photo in store.photos">
 					<div :class="photo.orientation">
-						<a :href="photo.url" target="_blank"><orientation-image :url="photo.url" :orientation="getOrientation(photo.url)"></orientation-image></img></a>
+						<a :href="photo.url" target="_blank"></a>
 					</div>
 					<div v-if="photo.description">
 						<p class="card-text">{{ photo.description }}</p>
@@ -17,15 +17,13 @@
 
 <script>
 import store from '../store.js'
-import Photo from './Photo.vue'
-import OrientationImage from './OrientationImage.vue'
 
 export default {
-	components: {
-		Photo,
-		OrientationImage
+	data() {
+		return {
+			store
+		}
 	},
-
 	methods: {
 		getOrientation(imageURL) {
 			var img = new Image();
@@ -36,13 +34,6 @@ export default {
 			});
 		}
 	},
-
-	data() {
-		return {
-			store
-		}
-	}, 
-
 	mounted() {
 		axios.get('/pics').then(response => {
 			store.photos = response.data
