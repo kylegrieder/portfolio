@@ -20,7 +20,7 @@
     <body>
     	<div id="app">
 	        @include('nav.masthead')
-	        @yield('content')
+	        <router-view></router-view>
         </div>
         <script src="{{ mix('/js/manifest.js') }}"></script>
         <script src="{{ mix('/js/vendor.js') }}"></script>

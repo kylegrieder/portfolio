@@ -13,7 +13,7 @@
         </div>
         <div class="raleway-light">
             <div>
-                <a href="/blog">Blog</a> •
+                <router-link to="/blog">Blog •</router-link>
                 <a href="/photos">Photos</a>
             </div>
         </div>

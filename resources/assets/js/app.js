@@ -15,6 +15,11 @@ window.DATE_FORMATS = dateFormats
 // Vuex
 import store from './store.js'
 
+// Vue Router
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+import router from './routes.js'
+
 // component registration
 const files = require.context('./components', true, /\.vue$/)
 files.keys().forEach((key) => {
@@ -28,5 +33,6 @@ files.keys().forEach((key) => {
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
+    router
 });
