@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<post v-for="post in store.posts" :initialPost="post" :key="post.id">
+		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
 					<a :href="'/blog/' + post.id">
@@ -24,17 +24,24 @@
 </template>
 
 <script>
+import {mapState, mapGetters} from 'vuex'
 import store from '../store.js'
 export default {
 	data() {
-		return {
-			store
-		}
+		return {}
+	},
+	computed: {
+		...mapState({
+			posts: state => state.posts
+		})
+	},
+	methods: {
+		...mapGetters([
+			'getPosts'
+		])
 	},
 	mounted() {
-		axios.get('/posts').then(response => {
-			store.posts = response.data
-		});
+		this.getPosts()
 	}
 }
 </script>

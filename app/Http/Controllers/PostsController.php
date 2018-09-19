@@ -14,7 +14,7 @@ class PostsController extends Controller
     }
 
     public function show(Post $post)
-    {   
+    {
         return view('posts.show');
     }
 
@@ -26,7 +26,7 @@ class PostsController extends Controller
         ->get();
 
         // $archives = Post::archives();
-        
+
         return $posts;
     }
 

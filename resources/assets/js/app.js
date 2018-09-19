@@ -23,9 +23,7 @@ files.keys().forEach((key) => {
     let path = key.replace(/(\.\/|\.vue)/g, '')
 
     fileName = _.last(path.split('/')) // necessary for nested folders to work.
-    console.log('fileName', fileName)
-    console.log('path', path)
-    Vue.component(fileName, require('./components/' + path).default)
+    Vue.component(fileName, require('./components/' + path))
 })
 
 const app = new Vue({

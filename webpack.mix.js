@@ -19,5 +19,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 
 if (process.env.NODE_ENV !== 'test') {
-    mix.extract(['vue','vuex', 'jquery', 'popper.js', 'bootstrap', 'moment'])
+    mix.extract(['vue','vuex', 'popper.js', 'bootstrap', 'moment'])
 }

@@ -2,9 +2,9 @@
 	<div>
 		<div class="container" id='photos'>
 			<div class="row">
-				<div class="card" v-for="photo in store.photos">
+				<div class="card" v-for="photo in photos">
 					<div :class="photo.orientation">
-						<a :href="photo.url" target="_blank"></a>
+						<a :href="photo.url" target="_blank"><img :src="photo.url"/></a>
 					</div>
 					<div v-if="photo.description">
 						<p class="card-text">{{ photo.description }}</p>
@@ -16,28 +16,24 @@
 </template>
 
 <script>
-import store from '../store.js'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
 	data() {
-		return {
-			store
-		}
+		return {}
+	},
+	computed: {
+		...mapState({
+			photos: state => state.photos
+		})
 	},
 	methods: {
-		getOrientation(imageURL) {
-			var img = new Image();
-			img.src = imageURL;
-			EXIF.getData(img, function() {
-				var orientation = EXIF.getTag(this, "Orientation")
-				return orientation;
-			});
-		}
+		...mapGetters([
+			'getPhotos'
+		])
 	},
 	mounted() {
-		axios.get('/pics').then(response => {
-			store.photos = response.data
-		});
+		this.getPhotos()
 	}
 }
 </script>
