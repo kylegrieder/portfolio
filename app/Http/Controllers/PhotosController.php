@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class PhotosController extends Controller
 {
-	/** 
+	/**
 	 * Resource Functions
 	 */
-	
+
 	public function index()
 	{
 		return view('photos.index');
@@ -29,13 +29,13 @@ class PhotosController extends Controller
 		// $myFile = new File('file.txt');
 		// $handle = fopen($myFile, 'w') or die('Cannot open file:  '.$myFile);
 		// $data = 'Test 2';
-		// fwrite($handle, $data); 
+		// fwrite($handle, $data);
 
 		//returns a bool
 		// return [Storage::disk('s3')->put('uploads', $myFile, 'public')];
 	}
 
-	/** 
+	/**
 	 * Other functions
 	 */
 

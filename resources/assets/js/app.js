@@ -1,52 +1,32 @@
+// vue on the window
+window.Vue = require('vue')
+require('vuex')
+require('./bootstrap')
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// new Vue instance for event emitting and listening.
+window.events = new Vue()
 
-require('./bootstrap');
-
-window.Vue = require('vue');
-window.moment = require('moment');
-window.Event = new Vue();
-
+// moment for date stuffs
+window.moment = require('moment')
+// date formats constant
 import dateFormats from './constants/dateFormats'
-    window.DATE_FORMATS = dateFormats
-import AutoRotate from 'vue-jpeg-auto-rotation'
-    Vue.use(AutoRotate)
+window.DATE_FORMATS = dateFormats
 
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-import Posts from './components/Posts.vue'
-import Post from './components/Post.vue'
-import Photos from './components/Photos.vue'
-import Photo from './components/Photo.vue'
-
+// Vuex
 import store from './store.js'
 
+// component registration
+const files = require.context('./components', true, /\.vue$/)
+files.keys().forEach((key) => {
+
+    let fileName = '';
+    let path = key.replace(/(\.\/|\.vue)/g, '')
+
+    fileName = _.last(path.split('/')) // necessary for nested folders to work.
+    Vue.component(fileName, require('./components/' + path))
+})
+
 const app = new Vue({
-    el: '#app', 
-
-    components: {
-        Posts, 
-        Post, 
-        Photos, 
-        Photo, 
-        AutoRotate
-    },
-
-    data: {
-    	store
-    },
-
-    mounted() {
-		axios.get('/posts').then(response => {
-			store.posts = response.data
-		});
-    }
+    el: '#app',
+    store
 });

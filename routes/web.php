@@ -29,8 +29,8 @@ Route::get('/photos/{photo}', 'PhotosController@show');
  * Api functions - return objects/arrays
  */
 // blog posts
-Route::get('/posts', 'PostsController@getPosts');
-Route::get('/post/{postId}', 'PostsController@getPost');
+Route::get('/api/posts', 'PostsController@getPosts');
+Route::get('/api/post/{postId}', 'PostsController@getPost');
 // photos
-Route::get('/pics', 'PhotosController@getPhotos');
-Route::get('/pic/{photo}', 'PhotosController@getPhoto');
+Route::get('/api/photos', 'PhotosController@getPhotos');
+Route::get('/api/photo/{photo}', 'PhotosController@getPhoto');
