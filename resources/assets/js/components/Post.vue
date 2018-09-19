@@ -1,36 +1,36 @@
 <template>
 	<div>
-		<slot name="title"> 
+		<slot name="title">
 			<div class="blog-post-title">
 				<h1>
 					{{ this.post.title }}
 				</h1>
 			</div>
 		</slot>
-		<slot name="timestamp"> 
+		<slot name="timestamp">
 			<div class="timestamp" @mouseover="mouseover" @mouseleave="mouseover">
 				{{ this.timeFormat }}
 			</div>
 		</slot>
-		<slot name="body"> 
+		<slot name="body">
 			<div class="blog-post-body">
 				{{ this.post.body }}
 			</div>
 		</slot>
-	</div>	
+	</div>
 </template>
 
 <script>
 import store from '../store.js'
 export default {
 	props: [
-		'initialPost', 
+		'initialPost',
 	],
 
 	computed: {
 		timeFormat: function() {
-			let prettyTime = moment.utc(this.post.created_at).local().fromNow();
-			let uglyTime = moment.utc(this.post.created_at).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
+			let prettyTime = moment(this.post.created_at).local().fromNow();
+			let uglyTime = moment(this.post.created_at).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
 			return this.displayTime = this.timeFromNow ? prettyTime : uglyTime
 		}
 	},
@@ -56,7 +56,7 @@ export default {
 			this.post = this.initialPost
 		} else {
 			var id = _.last( window.location.pathname.split('/'));
-	    	axios.get('/post/' + id).then( response => {
+	    	axios.get('/api/post/' + id).then( response => {
 				this.post = _.first(response.data)
 			});
 		}

@@ -1,23 +1,23 @@
 <template>
 	<div>
-		<slot name="title"> 
+		<slot name="title">
 			<div class="blog-post-title">
 				<h1>
 					{{ this.post.title }}
 				</h1>
 			</div>
 		</slot>
-		<slot name="timestamp"> 
+		<slot name="timestamp">
 			<div class="timestamp" @mouseover="mouseover" @mouseleave="mouseover">
 				{{ this.timeFormat }}
 			</div>
 		</slot>
-		<slot name="body"> 
+		<slot name="body">
 			<div class="blog-post-body">
 				{{ this.post.body }}
 			</div>
 		</slot>
-	</div>	
+	</div>
 </template>
 
 <script>
