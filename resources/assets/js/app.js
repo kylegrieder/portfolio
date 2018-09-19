@@ -1,4 +1,4 @@
-
+// vue on the window
 window.Vue = require('vue')
 require('vuex')
 require('./bootstrap')
