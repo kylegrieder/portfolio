@@ -21,11 +21,16 @@
 </template>
 
 <script>
-import store from '../store.js'
+
 export default {
 	props: [
 		'initialPost',
 	],
+
+	data() {
+		return {
+		}
+	},
 
 	computed: {
 		timeFormat: function() {
@@ -38,13 +43,6 @@ export default {
 	methods: {
 		mouseover() {
 			this.timeFromNow = !this.timeFromNow
-		}
-	},
-
-	data() {
-		return {
-			timeFromNow: true,
-			post: {}
 		}
 	},
 

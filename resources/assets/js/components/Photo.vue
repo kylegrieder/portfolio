@@ -1,28 +1,18 @@
 <template>
-	<div>
-		<slot name="title">
-			<div class="blog-post-title">
-				<h1>
-					{{ this.post.title }}
-				</h1>
-			</div>
-		</slot>
-		<slot name="timestamp">
-			<div class="timestamp" @mouseover="mouseover" @mouseleave="mouseover">
-				{{ this.timeFormat }}
-			</div>
-		</slot>
-		<slot name="body">
-			<div class="blog-post-body">
-				{{ this.post.body }}
-			</div>
-		</slot>
+	<div class="card">
+		<div :class="photo.orientation">
+			<a :href="photo.url" target="_blank"><img :src="photo.url"/></a>
+		</div>
+		<div v-if="photo.description">
+			<p class="card-text">{{ photo.description }}</p>
+		</div>
 	</div>
 </template>
 
 <script>
-import store from '../store.js'
 export default {
-
+	props: [
+		'photo'
+	]
 }
 </script>

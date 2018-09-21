@@ -3,9 +3,9 @@
 		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
-					<a :href="'/blog/' + post.id">
+					<router-link :to="'/blog/' + post.id">
 						{{ post.title }}
-					</a>
+					</router-link>
 				</h1>
 			</div>
 			<div class="timestamp">
@@ -14,9 +14,9 @@
 			</div>
 			<div slot="body">
 				<div class="cover-post-body">
-					<a :href="'/blog/' + post.id">
+					<router-link :to="'/blog/' + post.id">
 						{{ post.body }}
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</post>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
-import store from '../store.js'
+import { mapState } from 'vuex'
+
 export default {
 	data() {
 		return {}
@@ -34,14 +34,6 @@ export default {
 		...mapState({
 			posts: state => state.posts
 		})
-	},
-	methods: {
-		...mapGetters([
-			'getPosts'
-		])
-	},
-	mounted() {
-		this.getPosts()
 	}
 }
 </script>

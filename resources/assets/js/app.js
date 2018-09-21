@@ -34,5 +34,23 @@ files.keys().forEach((key) => {
 const app = new Vue({
     el: '#app',
     store,
-    router
+    router,
+
+    methods: {
+        getPhotos() {
+            axios.get('/api/photos').then(response => {
+                store.state.photos = response.data
+            })
+        },
+        getPosts() {
+            axios.get('/api/posts').then(response => {
+                store.state.posts = response.data
+            })
+        }
+    },
+
+    mounted() {
+        this.getPhotos()
+        this.getPosts()
+    }
 });

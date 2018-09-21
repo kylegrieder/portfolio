@@ -10,23 +10,19 @@ export default new Vuex.Store({
     },
     getters: {
         getPhotos(state) {
-            axios.get('/api/photos').then(response => {
-                state.photos = response.data
-            });
+            return state.photos
         },
         getPosts(state) {
-            axios.get('/api/posts').then(response => {
-                state.posts = response.data
-            });
+            return state.posts
         }
     },
     actions: {
     },
     mutations: {
-        setPhotos({state}, photos) {
+        setPhotos(state, photos) {
             state.photos = photos
         },
-        setPosts({state}, posts) {
+        setPosts(state, posts) {
             state.posts = posts
         }
     }
