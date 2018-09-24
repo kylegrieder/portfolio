@@ -3,15 +3,15 @@
  */
 
 .cover-post-body {
-
-      background:linear-gradient(transparent 140px, #677999);
-
-    :hover {
-        text-decoration: none;
-    }
+    background:linear-gradient(transparent 140px, #677999);
 
     margin-top: 10px;
     margin-bottom: 20px;
+    margin-right: 28%;
+    margin-left: 28%;
+
+    text-align: justify;
+    font-weight: 100;
 
     display: --webkit-box;
     /* hide text if it more than N lines  */
@@ -22,6 +22,10 @@
     line-height: 20px;
     /* max-height = line-height (1.2) * lines max number (8) */
     max-height: 180px;  
+
+    :hover {
+        text-decoration: none;
+    }
 }
 
 .timestamp {
@@ -49,4 +53,5 @@
     max-width: 800px;
     font-size: 15px;
     margin-top: 10px;
+    text-align: center;
 }

@@ -6,6 +6,10 @@
   background: linear-gradient(transparent 140px, #677999);
   margin-top: 10px;
   margin-bottom: 20px;
+  margin-right: 28%;
+  margin-left: 28%;
+  text-align: justify;
+  font-weight: 100;
   display: --webkit-box;
   /* hide text if it more than N lines  */
   overflow: hidden;
@@ -46,5 +50,6 @@
   max-width: 800px;
   font-size: 15px;
   margin-top: 10px;
+  text-align: center;
 }
 
