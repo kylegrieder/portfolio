@@ -13,14 +13,19 @@
 			</div>
 		</slot>
 		<slot name="body">
-			<div class="blog-post-body">
-				{{ this.post.body }}
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="blog-post-body">
+						{{ this.post.body }}
+					</div>
+				</div>
 			</div>
 		</slot>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
 	props: [
@@ -29,6 +34,7 @@ export default {
 
 	data() {
 		return {
+			post: {}
 		}
 	},
 
@@ -37,7 +43,10 @@ export default {
 			let prettyTime = moment(this.post.created_at).local().fromNow();
 			let uglyTime = moment(this.post.created_at).local().format(DATE_FORMATS.LOCALIZED.SHORTDATETIME);
 			return this.displayTime = this.timeFromNow ? prettyTime : uglyTime
-		}
+		},
+		...mapGetters([
+			'getPost'
+		])
 	},
 
 	methods: {
@@ -53,10 +62,9 @@ export default {
 		if (this.initialPost) {
 			this.post = this.initialPost
 		} else {
-			var id = _.last( window.location.pathname.split('/'));
-	    	axios.get('/api/post/' + id).then( response => {
-				this.post = _.first(response.data)
-			});
+			setTimeout(() => {
+				this.post = this.getPost(this.$route.params)
+			}, 1)
 		}
 	}
 }

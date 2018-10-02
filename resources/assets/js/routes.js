@@ -10,12 +10,12 @@ let routes = [
 		component: require('./views/Posts.vue')
 	},
     {
-        path: '/photos',
-        component: require('./views/Photos.vue')
+        path:'/blog/:year/:month/:day',
+        component: require('./components/Post.vue')
     },
     {
-        path:'/blog/{id}',
-        component: require('./components/Photo.vue')
+        path: '/photos',
+        component: require('./views/Photos.vue')
     }
 ]
 

@@ -3,7 +3,7 @@
 		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
-					<router-link :to="'/blog/' + post.id">
+					<router-link :to="blogUrlPathforPost(post.created_at)" append>
 						{{ post.title }}
 					</router-link>
 				</h1>
@@ -14,7 +14,7 @@
 			</div>
 			<div slot="body">
 				<div class="cover-post-body">
-					<router-link :to="'/blog/' + post.id">
+					<router-link :to="blogUrlPathforPost(post.created_at)" append>
 						{{ post.body }}
 					</router-link>
 				</div>
@@ -34,6 +34,11 @@ export default {
 		...mapState({
 			posts: state => state.posts
 		})
+	},
+	methods: {
+		blogUrlPathforPost(dateTime) {
+			return `${moment(dateTime).format('YYYY')}/${moment(dateTime).format('MM')}/${moment(dateTime).format('DD')}`
+		}
 	}
 }
 </script>

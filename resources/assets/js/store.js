@@ -14,6 +14,13 @@ export default new Vuex.Store({
         },
         getPosts(state) {
             return state.posts
+        },
+        getPost: (state, getters) => (date) => {
+            return getters.getPosts.find((post) => {
+                return moment(post.created_at).format('YYYY') == date['year'] && 
+                        moment(post.created_at).format('MM') == date['month'] && 
+                        moment(post.created_at).format('DD') == date['day']
+            })
         }
     },
     actions: {

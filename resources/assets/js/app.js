@@ -8,6 +8,7 @@ window.events = new Vue()
 
 // moment for date stuffs
 window.moment = require('moment')
+
 // date formats constant
 import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats

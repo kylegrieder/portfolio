@@ -12,17 +12,18 @@ class PhotosController extends Controller
 	/**
 	 * Resource Functions
 	 */
-
+	
 	public function index()
 	{
-		return view('photos.index');
-	}
+		$photos = Photo::latest()
+		->filter(request(['month', 'year']))
+		->orderBy('created_at')
+		->get();
 
-	public function show(Photo $Photo)
-	{
-		return view('photos.show');
+		// $archives = Photo::archives();
+		return $photos;
 	}
-
+	
 	public function store()
 	{
 		//example of how to upload a file
@@ -33,21 +34,5 @@ class PhotosController extends Controller
 
 		//returns a bool
 		// return [Storage::disk('s3')->put('uploads', $myFile, 'public')];
-	}
-
-	/**
-	 * Other functions
-	 */
-
-	public function getPhotos()
-	{
-
-		$photos = Photo::latest()
-		->filter(request(['month', 'year']))
-		->orderBy('created_at')
-		->get();
-
-		// $archives = Photo::archives();
-		return $photos;
 	}
 }
