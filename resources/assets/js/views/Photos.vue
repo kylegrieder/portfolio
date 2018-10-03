@@ -19,6 +19,6 @@ export default {
 		...mapState({
 			photos: state => state.photos
 		})
-	}
+	},
 }
 </script>

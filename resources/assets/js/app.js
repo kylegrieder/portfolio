@@ -41,11 +41,22 @@ const app = new Vue({
         getPhotos() {
             axios.get('/api/photos').then(response => {
                 store.state.photos = response.data
+                this.getExif()
             })
         },
         getPosts() {
             axios.get('/api/posts').then(response => {
                 store.state.posts = response.data
+            })
+        },
+        getExif() {
+            console.log(store.state.photos)
+            let img1 = `<img src="${store.state.photos[0].url}">`
+            EXIF.getData(img1, () => {
+                let make = EXIF.getTag(this, "Manufacturer")
+                let model = EXIF.getTag(this, "Model")
+                console.log('make', make)
+                console.log('model', model)
             })
         }
     },
