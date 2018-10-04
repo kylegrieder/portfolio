@@ -3,6 +3,9 @@ window.Vue = require('vue')
 require('vuex')
 require('./bootstrap')
 
+// image exif data handler
+import * as exif from 'exif-js'
+
 // new Vue instance for event emitting and listening.
 window.events = new Vue()
 
@@ -50,18 +53,16 @@ const app = new Vue({
             })
         },
         getExif() {
-            console.log(store.state.photos)
-            let img1 = `<img src="${store.state.photos[0].url}">`
-            EXIF.getData(img1, () => {
-                let make = EXIF.getTag(this, "Manufacturer")
-                let model = EXIF.getTag(this, "Model")
-                console.log('make', make)
-                console.log('model', model)
+            var img1 = `<img src="${store.state.photos[0].url}"/>`
+            exif.getData(img1, (data) => {
+                console.log(data)
+                var manu = EXIF.getTag(this, "Manufacturer")
+                var model = EXIF.getTag(this, "Model")
+                console.log(`${manu} ${model}`)
             })
         }
     },
-
-    mounted() {
+    created() {
         this.getPhotos()
         this.getPosts()
     }
