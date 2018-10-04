@@ -10,23 +10,26 @@ export default new Vuex.Store({
     },
     getters: {
         getPhotos(state) {
-            axios.get('/api/photos').then(response => {
-                state.photos = response.data
-            });
+            return state.photos
         },
         getPosts(state) {
-            axios.get('/api/posts').then(response => {
-                state.posts = response.data
-            });
+            return state.posts
+        },
+        getPost: (state, getters) => (date) => {
+            return getters.getPosts.find((post) => {
+                return moment(post.created_at).format('YYYY') == date['year'] && 
+                        moment(post.created_at).format('MM') == date['month'] && 
+                        moment(post.created_at).format('DD') == date['day']
+            })
         }
     },
     actions: {
     },
     mutations: {
-        setPhotos({state}, photos) {
+        setPhotos(state, photos) {
             state.photos = photos
         },
-        setPosts({state}, posts) {
+        setPosts(state, posts) {
             state.posts = posts
         }
     }

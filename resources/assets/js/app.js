@@ -8,12 +8,18 @@ window.events = new Vue()
 
 // moment for date stuffs
 window.moment = require('moment')
+
 // date formats constant
 import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats
 
 // Vuex
 import store from './store.js'
+
+// Vue Router
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+import router from './routes.js'
 
 // component registration
 const files = require.context('./components', true, /\.vue$/)
@@ -28,5 +34,35 @@ files.keys().forEach((key) => {
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
+    router,
+
+    methods: {
+        getPhotos() {
+            axios.get('/api/photos').then(response => {
+                store.state.photos = response.data
+                this.getExif()
+            })
+        },
+        getPosts() {
+            axios.get('/api/posts').then(response => {
+                store.state.posts = response.data
+            })
+        },
+        getExif() {
+            console.log(store.state.photos)
+            let img1 = `<img src="${store.state.photos[0].url}">`
+            EXIF.getData(img1, () => {
+                let make = EXIF.getTag(this, "Manufacturer")
+                let model = EXIF.getTag(this, "Model")
+                console.log('make', make)
+                console.log('model', model)
+            })
+        }
+    },
+
+    mounted() {
+        this.getPhotos()
+        this.getPosts()
+    }
 });

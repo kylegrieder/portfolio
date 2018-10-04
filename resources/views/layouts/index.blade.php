@@ -10,17 +10,17 @@
         <title>kyleg.net</title>
 
         <!-- Bootstrap Core Styling -->
-        <link href="/css/app.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
         <!-- Bootstrap Custom Styling -->
-        <link href="/css/cover.css" rel="stylesheet">
-        <link href="/css/post.css" rel="stylesheet">
-        <link href="/css/album.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/cover.css">
+        <link rel="stylesheet" type="text/css" href="/css/post.css">
+        <link rel="stylesheet" type="text/css" href="/css/album.css">
     </head>
 
     <body>
     	<div id="app">
 	        @include('nav.masthead')
-	        @yield('content')
+	        <router-view></router-view>
         </div>
         <script src="{{ mix('/js/manifest.js') }}"></script>
         <script src="{{ mix('/js/vendor.js') }}"></script>

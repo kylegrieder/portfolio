@@ -9,12 +9,13 @@
             <a href="https://github.com/kgfromthemv" target="_blank"><img class="svg" src="/images/gitHub.svg" alt="gitHub"></img></a>
         </div>
         <div class="cover-title">
-            <a id="title" href="/">kyle grieder</a>
+            <router-link id="title" to="/">kyle grieder</router-link>
         </div>
         <div class="raleway-light">
             <div>
-                <a href="/blog">Blog</a> •
-                <a href="/photos">Photos</a>
+                <router-link to="/blog">Blog</router-link>
+                •
+                <router-link to="/photos">Photos</router-link>
             </div>
         </div>
     </div>

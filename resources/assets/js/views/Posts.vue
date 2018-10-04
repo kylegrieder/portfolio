@@ -3,9 +3,9 @@
 		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
-					<a :href="'/blog/' + post.id">
+					<router-link :to="blogUrlPathforPost(post.created_at)" append>
 						{{ post.title }}
-					</a>
+					</router-link>
 				</h1>
 			</div>
 			<div class="timestamp">
@@ -14,9 +14,9 @@
 			</div>
 			<div slot="body">
 				<div class="cover-post-body">
-					<a :href="'/blog/' + post.id">
+					<router-link :to="blogUrlPathforPost(post.created_at)" append>
 						{{ post.body }}
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</post>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
-import store from '../store.js'
+import { mapState } from 'vuex'
+
 export default {
 	data() {
 		return {}
@@ -36,12 +36,9 @@ export default {
 		})
 	},
 	methods: {
-		...mapGetters([
-			'getPosts'
-		])
-	},
-	mounted() {
-		this.getPosts()
+		blogUrlPathforPost(dateTime) {
+			return `${moment(dateTime).format('YYYY')}/${moment(dateTime).format('MM')}/${moment(dateTime).format('DD')}`
+		}
 	}
 }
 </script>
