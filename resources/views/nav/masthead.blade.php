@@ -1,7 +1,4 @@
-<br />
-<br />
-
-<div class="flex-center position-ref full-height">
+<div class="flex-center sticky-top position-ref full-height masthead-bg">
     <div class="inner-cover inner">
         <div class="row-center">
             <a href="https://twitter.com/kgfromthemv" target="_blank"><img class="svg" src="/images/twitter.svg" alt="twitter"></img></a>

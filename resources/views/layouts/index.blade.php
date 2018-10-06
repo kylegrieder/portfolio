@@ -19,8 +19,10 @@
 
     <body>
     	<div id="app">
-	        @include('nav.masthead')
-	        <router-view></router-view>
+            <div class="col-12">
+                @include('nav.masthead')
+                <router-view></router-view>
+            </div>
         </div>
         <script src="{{ mix('/js/manifest.js') }}"></script>
         <script src="{{ mix('/js/vendor.js') }}"></script>

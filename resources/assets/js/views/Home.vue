@@ -1,6 +1,6 @@
 <template>
 	<div class="flex-center position-ref full-height">
-	    <div class="inner-cover inner">
+	    <div>
 	        <div class="image-container">
 	            <img src="me.jpg" />
 	            <br />
@@ -22,5 +22,5 @@
 </template>
 
 <script>
-	
+
 </script>

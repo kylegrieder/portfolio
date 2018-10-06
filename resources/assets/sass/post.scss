@@ -1,9 +1,10 @@
 /**
  * Post Styles
  */
+@import "variables";
 
 .cover-post-body {
-    background:linear-gradient(transparent 140px, #677999);
+    background:linear-gradient(transparent 140px, $light-gray);
 
     margin-top: 10px;
     margin-bottom: 20px;
@@ -21,7 +22,7 @@
     /* use this value to count block height */
     line-height: 20px;
     /* max-height = line-height (1.2) * lines max number (8) */
-    max-height: 180px;  
+    max-height: 180px;
 
     :hover {
         text-decoration: none;

@@ -2,6 +2,7 @@
  * Globals
  */
 
+@import "variables";
 
 /* Links */
 a,
@@ -31,7 +32,7 @@ a:hover {
 }
 
 .svg {
-    display: inline; 
+    display: inline;
     max-height: 1.25rem;
     width: auto;
     filter: invert(100%);
@@ -85,6 +86,11 @@ body {
 /*
  * Header
  */
+
+.masthead-bg {
+    background-color: $background;
+    background:linear-gradient($background, transparent 800px);
+}
 
 .masthead {
     margin-bottom: 2rem;

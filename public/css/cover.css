@@ -89,6 +89,11 @@ body {
  * Header
  */
 
+.masthead-bg {
+  background-color: #495466;
+  background: linear-gradient(#495466, transparent 800px);
+}
+
 .masthead {
   margin-bottom: 2rem;
 }
