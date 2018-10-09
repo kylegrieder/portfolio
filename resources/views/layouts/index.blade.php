@@ -24,6 +24,7 @@
                 <router-view></router-view>
             </div>
         </div>
+        <script src="/packages/javascript-load-image/js/load-image.all.min.js"></script>
         <script src="{{ mix('/js/manifest.js') }}"></script>
         <script src="{{ mix('/js/vendor.js') }}"></script>
         <script src="{{ mix('/js/app.js') }}"></script>

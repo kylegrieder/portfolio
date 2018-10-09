@@ -17,5 +17,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    	.sass('resources/assets/sass/album.scss', 'public/css')
    	.sass('resources/assets/sass/post.scss', 'public/css')
 
-    .extract(['vue','vuex', 'popper.js', 'bootstrap', 'moment', 'exif-js'])
+    .extract(['vue','vuex', 'popper.js', 'bootstrap', 'moment'])
 

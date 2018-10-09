@@ -3,9 +3,6 @@ window.Vue = require('vue')
 require('vuex')
 require('./bootstrap')
 
-// image exif data handler
-import * as exif from 'exif-js'
-
 // new Vue instance for event emitting and listening.
 window.events = new Vue()
 
@@ -44,7 +41,6 @@ const app = new Vue({
         getPhotos() {
             axios.get('/api/photos').then(response => {
                 store.state.photos = response.data
-                this.getExif()
             })
         },
         getPosts() {
@@ -52,15 +48,6 @@ const app = new Vue({
                 store.state.posts = response.data
             })
         },
-        getExif() {
-            var img1 = `<img src="${store.state.photos[0].url}"/>`
-            exif.getData(img1, (data) => {
-                console.log(data)
-                var manu = EXIF.getTag(this, "Manufacturer")
-                var model = EXIF.getTag(this, "Model")
-                console.log(`${manu} ${model}`)
-            })
-        }
     },
     created() {
         this.getPhotos()
