@@ -11,8 +11,6 @@
         <div class="raleway-light">
             <div>
                 <router-link to="/blog">Blog</router-link>
-                •
-                <router-link to="/photos">Photos</router-link>
             </div>
         </div>
     </div>
