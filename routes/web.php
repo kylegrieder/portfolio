@@ -6,13 +6,9 @@
  */
 
 Route::get('/', function () {
-    return view('layouts.index');
+    return view('index');
 });
 
-/**
- * Api functions - return objects/arrays
- */
-// blog posts
-Route::get('/api/posts', 'PostsController@index');
-// photos
-Route::get('/api/photos', 'PhotosController@index');
+Route::get('/new-post', function () {
+    return view('newPost');
+});

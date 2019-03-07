@@ -6,11 +6,11 @@
             <a href="https://github.com/kylegrieder" target="_blank"><img class="svg" src="/images/github.svg" alt="gitHub"></img></a>
         </div>
         <div class="cover-title">
-            <router-link id="title" to="/">kyle grieder</router-link>
+            @yield('title-link')
         </div>
         <div class="raleway-light">
             <div>
-                <router-link to="/blog">Blog</router-link>
+                @yield('links')
             </div>
         </div>
     </div>
