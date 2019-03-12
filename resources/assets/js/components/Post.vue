@@ -14,10 +14,8 @@
 		</slot>
 		<slot name="body">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="blog-post-body">
-						{{ this.post.body }}
-					</div>
+				<div class="col-lg-12 blog-post-body">
+					<vue-markdown :source="post.body"></vue-markdown>
 				</div>
 			</div>
 		</slot>
@@ -34,7 +32,8 @@ export default {
 
 	data() {
 		return {
-			post: {}
+			post: {},
+			timeFromNow: true
 		}
 	},
 
@@ -64,7 +63,7 @@ export default {
 		} else {
 			setTimeout(() => {
 				this.post = this.getPost(this.$route.params)
-			}, 1)
+			}, 100)
 		}
 	}
 }

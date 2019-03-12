@@ -9,13 +9,12 @@
 				</h1>
 			</div>
 			<div class="timestamp">
-				<template slot="timestamp">
-				</template>
+				<template slot="timestamp"></template>
 			</div>
 			<div slot="body">
 				<div class="cover-post-body">
 					<router-link :to="blogUrlPathforPost(post.created_at)" append>
-						{{ post.body }}
+						<vue-markdown :source="post.body"></vue-markdown>
 					</router-link>
 				</div>
 			</div>

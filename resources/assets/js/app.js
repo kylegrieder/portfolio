@@ -3,6 +3,14 @@ window.Vue = require('vue')
 require('vuex')
 require('./bootstrap')
 
+// Vuex
+import store from './store.js'
+
+// Vue Router
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+import router from './routes.js'
+
 // new Vue instance for event emitting and listening.
 window.events = new Vue()
 
@@ -13,13 +21,8 @@ window.moment = require('moment')
 import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats
 
-// Vuex
-import store from './store.js'
-
-// Vue Router
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-import router from './routes.js'
+import VueMarkdown from 'vue-markdown'
+Vue.component('vue-markdown', VueMarkdown)
 
 // component registration
 const files = require.context('./components', true, /\.vue$/)
