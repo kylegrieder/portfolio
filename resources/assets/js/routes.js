@@ -16,6 +16,10 @@ let routes = [
     {
         path: '/photos',
         component: require('./views/Photos.vue')
+    },
+    {
+        path: '/new-post',
+        component: require('./views/NewPost.vue')
     }
 ]
 
