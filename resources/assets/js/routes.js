@@ -20,6 +20,10 @@ let routes = [
     {
         path: '/new-post',
         component: require('./views/NewPost.vue')
+    },
+    {
+        path: '*',
+        component: require('./views/NotFound.vue')
     }
 ]
 

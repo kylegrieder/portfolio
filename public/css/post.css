@@ -53,3 +53,7 @@
   border-top: .5px solid gray;
 }
 
+.markdown-parser {
+  text-align: justify;
+}
+

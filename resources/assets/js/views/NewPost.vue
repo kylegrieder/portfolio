@@ -1,14 +1,25 @@
 <template>
     <div>
-        <div class="d-flex">
-            <div class="p-6">
-                <textarea class="w-100 h-100" v-model="post"></textarea>
-            </div>
-            <div class="p-6">
-                <vue-markdown class="w-100 h-100" :source="post"></vue-markdown>
+        <div class="row my-5">
+            <div class="col-12">
+                <b-form-textarea v-model="post"></b-form-textarea>
             </div>
         </div>
-        <button class="btn btn-default" @click="submit">Submit</button>
+        <div class="row">
+            <div class="col-10">
+                <b-button block v-b-toggle.markdown class="my-1 mx-2" variant="light">Show Markdown</b-button>
+            </div>
+            <div class="col-2">
+                <b-button class="my-1" variant="light" @click="submit">Submit</b-button>
+            </div>
+        </div>
+        <b-collapse id="markdown">
+            <div class="row my-2">
+                <div class="col-12">
+                    <vue-markdown class="markdown-parser" :source="post"></vue-markdown>
+                </div>
+            </div>
+        </b-collapse>
     </div>
 </template>
 

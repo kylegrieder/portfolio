@@ -11,6 +11,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import router from './routes.js'
 
+// Bootstrap Vue
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+
 // new Vue instance for event emitting and listening.
 window.events = new Vue()
 
