@@ -18,16 +18,13 @@
     </head>
 
     <body>
-    	<div id="app">
-            <div class="col-12">
+        <div id="app">
+            <div class="container">
                 @include('nav.masthead')
-                <router-view></router-view>
+                @yield('content')
             </div>
         </div>
-        <script src="/packages/javascript-load-image/js/load-image.all.min.js"></script>
-        <script src="{{ mix('/js/manifest.js') }}"></script>
-        <script src="{{ mix('/js/vendor.js') }}"></script>
-        <script src="{{ mix('/js/app.js') }}"></script>
+        @yield('vue')
     </body>
 
 </html>

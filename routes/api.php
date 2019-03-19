@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// blog posts
+Route::get('/posts', 'PostsController@index');
+Route::post('/newPost', 'PostsController@create');
+// photos
+Route::get('/photos', 'PhotosController@index');

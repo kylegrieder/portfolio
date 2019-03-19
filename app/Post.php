@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class Post extends Model
 {
     protected $fillable = [
-        'title', 
+        'title',
         'body'
     ];
 

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use App\Http\Requests\SubmitPost;
 use App\Post;
+use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
@@ -17,5 +18,16 @@ class PostsController extends Controller
 
         // $archives = Post::archives();
         return $posts;
+    }
+
+    public function create(SubmitPost $request) {
+        $title = $request->input('postTitle');
+        $body = $request->input('postBody');
+
+        $post = new Post();
+        $post->title = $title;
+        $post->body = $body;
+
+        $post->save();
     }
 }

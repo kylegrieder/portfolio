@@ -3,11 +3,10 @@
  */
 
 .cover-post-body {
-  background: linear-gradient(transparent 140px, #677999);
   margin-top: 10px;
   margin-bottom: 20px;
-  margin-right: 28%;
-  margin-left: 28%;
+  margin-right: 10%;
+  margin-left: 10%;
   text-align: justify;
   font-weight: 100;
   display: --webkit-box;
@@ -25,12 +24,6 @@
   text-decoration: none;
 }
 
-.timestamp {
-  opacity: 0.55;
-  font-style: italic;
-  display: inline;
-}
-
 .blog-post {
   max-width: 800px;
   text-align: justify;
@@ -38,18 +31,25 @@
 }
 
 .blog-post-title {
-  text-align: left;
   font-family: Raleway, sans-serif;
+  padding: 0 0 5px;
 }
 
 .blog-post-title h1 {
   margin-bottom: -4px;
 }
 
+.timestamp {
+  opacity: 0.55;
+  font-style: italic;
+  display: block;
+  padding: 0 0 15px;
+}
+
 .blog-post-body {
-  max-width: 800px;
   font-size: 15px;
-  margin-top: 10px;
-  text-align: center;
+  text-align: justify;
+  padding: 20px 0 0;
+  border-top: .5px solid gray;
 }
 
