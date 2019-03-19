@@ -99,4 +99,8 @@ return [
         ],
     ],
 
+    'post' => [
+        'password' => env('POST_PASSWORD')
+    ]
+
 ];

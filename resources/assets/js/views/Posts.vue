@@ -3,17 +3,14 @@
 		<post v-for="post in posts" :initialPost="post" :key="post.id">
 			<div slot="title">
 				<h1>
-					<router-link :to="blogUrlPathforPost(post.created_at)" append>
+					<router-link :to="blogUrlPathforPost(post)" append>
 						{{ post.title }}
 					</router-link>
 				</h1>
 			</div>
-			<div class="timestamp">
-				<template slot="timestamp"></template>
-			</div>
 			<div slot="body">
 				<div class="cover-post-body">
-					<router-link :to="blogUrlPathforPost(post.created_at)" append>
+					<router-link :to="blogUrlPathforPost(post)" append>
 						<vue-markdown :source="post.body"></vue-markdown>
 					</router-link>
 				</div>
@@ -35,8 +32,12 @@ export default {
 		})
 	},
 	methods: {
-		blogUrlPathforPost(dateTime) {
-			return `${moment(dateTime).format('YYYY')}/${moment(dateTime).format('MM')}/${moment(dateTime).format('DD')}`
+		blogUrlPathforPost(post) {
+			const dateTime = post.created_at
+			const title = post.title
+
+			return `${moment(dateTime).format('YYYY')}/` +
+			`${moment(dateTime).format('MM')}/${moment(dateTime).format('DD')}/${_.kebabCase(title)}`
 		}
 	}
 }

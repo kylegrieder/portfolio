@@ -10,7 +10,7 @@ let routes = [
         component: require('./views/Posts.vue')
     },
     {
-        path:'/blog/:year/:month/:day',
+        path:'/blog/:year/:month/:day/:title',
         component: require('./components/Post.vue')
     },
     {
