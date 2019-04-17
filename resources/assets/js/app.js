@@ -25,8 +25,11 @@ window.moment = require('moment')
 import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats
 
+// vue markdown support
 import VueMarkdown from 'vue-markdown'
 Vue.component('vue-markdown', VueMarkdown)
+
+Vue.component('movie-search', require('./views/MovieSearch'))
 
 // component registration
 const files = require.context('./components', true, /\.vue$/)
