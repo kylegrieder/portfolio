@@ -1,4 +1,3 @@
-
 // Colors
 
 $background: #495466;
@@ -9,3 +8,22 @@ $light-gray: #677999;
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+// Sizing
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+    (
+            10: 10%,
+            15: 15%,
+            20: 20%,
+            25: 25%,
+            50: 50%,
+            75: 75%,
+            100: 100%,
+            auto: auto
+    ),
+    $sizes
+);

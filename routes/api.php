@@ -22,3 +22,6 @@ Route::get('/posts', 'PostsController@index');
 Route::post('/newPost', 'PostsController@create');
 // photos
 Route::get('/photos', 'PhotosController@index');
+
+// movies
+Route::post('/addMovie', 'MovieController@create');

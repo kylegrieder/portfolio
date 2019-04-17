@@ -1,8 +1,8 @@
-/node_modules
-/public
+/node_modules/
+/public/
 /storage/*.key
-/vendor
-/.idea
+/vendor/
+/.idea/
 /.vscode
 /.vagrant
 Homestead.json

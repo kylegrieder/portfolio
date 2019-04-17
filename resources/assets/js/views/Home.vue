@@ -2,7 +2,7 @@
     <div class="flex-center position-ref full-height">
         <div>
             <div class="image-container">
-                <img src="me.jpg" />
+                <img src="/images/me.jpg" />
                 <br />
                 <br />
             </div>
