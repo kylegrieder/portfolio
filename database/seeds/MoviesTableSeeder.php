@@ -2,16 +2,17 @@
 
 use App\Genre;
 use App\Movie;
-use Illuminate\Database\Seeder;
 use GuzzleHttp\Psr7\Request as Request;
+use Illuminate\Database\Seeder;
 use League\Csv\Reader;
 use League\Csv\Statement;
 
 class MoviesTableSeeder extends Seeder
 {
 
-    protected $apiUrl = config('urls.api.tmdb.search');
-    protected $apiKey = config('keys.api.tmdb');
+    protected $apiUrl;
+    protected $apiKey;
+
     /**
      * Run the database seeds.
      *
@@ -19,15 +20,20 @@ class MoviesTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->apiUrl = config('urls.api.tmdb.search');
+        $this->apiKey = config('keys.api.tmdb');
+
         $csv = Reader::createFromPath('database/seeds/movies.csv', 'r');
-        $records = (new Statement())->limit(10)->process($csv); // TODO: remove this
-        // $records = $csv->getRecords();
+         $records = $csv->getRecords();
+        $failedCalls = [];
 
         $url = $this->apiUrl . 'api_key=' . $this->apiKey . '&language=en-US&page=1&include_adult=false';
         $client = new GuzzleHttp\Client();
 
-        $i = 0;
+        $i = 1;
         foreach ($records as $record) {
+            echo "$i\n";
+
             $entry = '';
             if (sizeof($record) > 1) {
                 foreach ($record as $piece) {
@@ -39,39 +45,51 @@ class MoviesTableSeeder extends Seeder
             $movie = explode('(', $entry);
             $title = trim(str_replace('_', ':', $movie[0]));
             $year = str_replace(')', '', $movie[1]);
-            $url = $url . '&query=' . urlencode($title) . '&year=' . $year;
+            $newUrl = $url . '&query=' . urlencode($title) . '&year=' . $year;
 
-            $request = new Request('GET', $url);
-            $promise = $client->sendAsync($request)->then(function ($response) {
+            if ($i % 40 == 0 && $i != 0) {
+                sleep(11);
+            }
 
-                $data = json_decode($response->getBody())->results[0];
-                $movie = new Movie();
+            $request = new Request('GET', $newUrl);
+            $promise = $client->sendAsync($request)->then(function ($response) use ($title, $failedCalls) {
 
-                $movie->id = $data->id;
-                $movie->title = $data->title;
-                $movie->year = explode('-', $data->release_date)[0];
-                $movie->overview = $data->overview;
-                $movie->poster_path = $data->poster_path;
-                $movie->release_date = $data->release_date;
+                $results = json_decode($response->getBody())->results;
 
-                $movie->save();
+                if (!empty($results)) {
+                    $data = $results[0];
+                    $existingMovie = Movie::find($data->id);
 
-                foreach ($data->genre_ids as $movieDbGenre) {
-                    $genre = Genre::find($movieDbGenre);
-                    $movie = Movie::find($data->id);
+                    if (!$existingMovie) {
+                        $movie = new Movie();
 
-                    $movie->genres()->attach($genre->id);
+                        $movie->id = $data->id;
+                        $movie->title = $data->title;
+                        $movie->year = explode('-', $data->release_date)[0];
+                        $movie->overview = $data->overview;
+                        $movie->poster_path = $data->poster_path;
+                        $movie->release_date = $data->release_date;
+
+                        $movie->save();
+
+                        foreach ($data->genre_ids as $movieDbGenre) {
+                            $genre = Genre::find($movieDbGenre);
+                            $movie = Movie::find($data->id);
+
+                            $movie->genres()->attach($genre->id);
+                        }
+                    }
+
+                } else {
+                    $failedCalls[] = $title;
                 }
-
             });
 
             $promise->wait();
 
             $i++;
-            echo $i;
-            if ($i % 40 == 0) {
-                sleep(11);
-            }
         }
+
+        echo $failedCalls;
     }
 }
