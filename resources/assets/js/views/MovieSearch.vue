@@ -4,7 +4,7 @@
             <b-col cols="9">
                 <b-row class="my-3" v-for="movie in movies" :key="movie.id">
                     <b-col class="col-xs-3">
-                        <img :src="`${imageApiBaseUrl}${imageSizeSmall}${movie.poster_path}`" alt="">
+                        <img :src="`${imageUrl}${imageSizeSmall}${movie.poster_path}`" alt="">
                     </b-col>
                     <b-col>
                         <p class="ml-2 my-0 text-left">{{ movie.title }}</p>
@@ -30,14 +30,24 @@
         name: 'MovieSearch',
         data() {
             return {
-                movies: phpvars.movies.slice(0, 15),
-                genres: phpvars.genres,
-                imageApiBaseUrl: phpvars.urls.tmdb.api.image,
                 imageSizeLarge: '/w500',
                 imageSizeMedium: '/w342',
                 imageSizeSmall: '/w185',
                 imageSizeXSmall: '/w92'
             }
         },
+        props: {
+            movies: {
+                type: Array,
+                required: true
+            },
+            genres: {
+                type: Array,
+                required: true
+            }
+            imageUrl: {
+                type: String
+            }
+        }
     }
 </script>

@@ -1,14 +1,21 @@
 <?php
 
+use \Illuminate\Routing\Router;
+
+/**
+ * @var Router $router
+ */
+/*
+
 /**
  * Site Entry Point
  * vue-router takes care of the rest
  */
 
-Route::domain(config('app.url'))->group(function () {
-    Route::get('/', 'ViewController@index');
+$router->domain(config('app.url'))->group(function () {
+    $router->get('/', 'ViewController@index');
 });
 
-Route::domain('movies.' . config('app.url'))->group(function () {
-   Route::get('/', 'ViewController@movies');
+$router->domain('movies.' . config('app.url'))->group(function () {
+   $router->get('/', 'ViewController@movies');
 });

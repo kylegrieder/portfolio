@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Http\Request;
+use \Illuminate\Routing\Router;
 
+/**
+ * @var Router $router
+ */
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,21 +17,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+$router->middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 // blog posts
-Route::get('/posts', 'PostsController@index');
-Route::post('/newPost', 'PostsController@create');
+$router->get('/posts', 'PostsController@index');
+$router->post('/newPost', 'PostsController@create');
 // photos
-Route::get('/photos', 'PhotosController@index');
+$router->get('/photos', 'PhotosController@index');
 
 // movies
-Route::post('/addMovie', 'MovieController@create');
+$router->post('/addMovie', 'MovieController@create');
 
-$router->get('/shite', function () {
-    $builder = \App\Movie::with('genres');
+$router->get('/movies', function () {
+    $builder = \App\Movie::with('genres')->get();
 
     return response()->json($builder->paginate());
 });

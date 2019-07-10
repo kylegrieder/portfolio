@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-    <movie-search></movie-search>
+    <movie-search
+        movies="{{ $movies }}"
+        genres="{{ $genres }}"
+        imageUrl="{{ $tmdbImageUrl }}"
+    >
+    </movie-search>
 @endsection
 
 @section('vue')

@@ -24,19 +24,8 @@ class ViewController extends Controller
     public function movies() {
         $movies = Movie::with('genres')->get();
         $genres = Genre::all();
-
-        JavaScript::put([
-            'movies' => $movies,
-            'genres' => $genres,
-            'urls' => [
-                'tmdb' => [
-                    'api' => [
-                        'image' => config('urls.api.tmdb.image')
-                    ]
-                ]
-            ]
-        ]);
-
-        return view('movies');
+        $tmdbImageUrl = config('urls.api.tmdb.image');
+        
+        return view('movies', compact($movies, $genres, $tmdbImageUrl));
     }
 }
