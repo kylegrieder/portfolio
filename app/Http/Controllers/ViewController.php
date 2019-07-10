@@ -22,7 +22,7 @@ class ViewController extends Controller
     }
 
     public function movies() {
-        $movies = Movie::all();
+        $movies = Movie::with('genres')->get();
         $genres = Genre::all();
 
         JavaScript::put([

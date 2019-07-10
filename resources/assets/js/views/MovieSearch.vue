@@ -12,6 +12,7 @@
                         <p class="ml-2 my-0 text-left text-white-50">{{ movie.overview }}</p>
                     </b-col>
                     <hr/>
+        {{ movie }}
                 </b-row>
             </b-col>
 
@@ -29,7 +30,7 @@
         name: 'MovieSearch',
         data() {
             return {
-                movies: phpvars.movies,
+                movies: phpvars.movies.slice(0, 15),
                 genres: phpvars.genres,
                 imageApiBaseUrl: phpvars.urls.tmdb.api.image,
                 imageSizeLarge: '/w500',
@@ -37,6 +38,6 @@
                 imageSizeSmall: '/w185',
                 imageSizeXSmall: '/w92'
             }
-        }
+        },
     }
 </script>

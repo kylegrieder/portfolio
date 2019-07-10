@@ -25,3 +25,9 @@ Route::get('/photos', 'PhotosController@index');
 
 // movies
 Route::post('/addMovie', 'MovieController@create');
+
+$router->get('/shite', function () {
+    $builder = \App\Movie::with('genres');
+
+    return response()->json($builder->paginate());
+});
