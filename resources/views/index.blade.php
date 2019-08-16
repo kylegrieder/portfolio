@@ -1,5 +1,15 @@
 @extends('layouts.master')
 
+@section('styling')
+<link rel="stylesheet" type="text/css" href="/css/cover.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+<link rel="stylesheet" type="text/css" href="/css/album.css">
+@endsection
+
+@section('masthead')
+    @include('nav.masthead')
+@endsection
+
 @section('content')
     <router-view></router-view>
 @endsection

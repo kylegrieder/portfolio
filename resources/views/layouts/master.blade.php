@@ -9,18 +9,15 @@
 
         <title>kyleg.net</title>
 
-        <!-- Bootstrap Core Styling -->
         <link rel="stylesheet" type="text/css" href="/css/app.css">
-        <!-- Bootstrap Custom Styling -->
-        <link rel="stylesheet" type="text/css" href="/css/cover.css">
-        <link rel="stylesheet" type="text/css" href="/css/post.css">
-        <link rel="stylesheet" type="text/css" href="/css/album.css">
+        @yield('styling')
+
     </head>
 
     <body>
         <div id="app">
             <div class="container">
-                @include('nav.masthead')
+                @yield('masthead')
                 @yield('content')
             </div>
         </div>
