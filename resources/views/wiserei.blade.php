@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('wiserei')
     @if ($authenticated)
         <wiserei
             airtable_api_key="{{$airtableApiKey}}"

@@ -16,6 +16,7 @@
 
     <body>
         <div id="app">
+            @yield('wiserei')
             <div class="container">
                 @yield('masthead')
                 @yield('content')
