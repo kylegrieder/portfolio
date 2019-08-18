@@ -1,11 +1,17 @@
-
 // Colors
-
 $background: #495466;
 $dark-gray: #495466;
 $light-gray: #677999;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: Raleway, sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+// Bootstrap
+$spacer: 1rem !default;
+$display5-size: 2.5rem !default;
+$display5-weight: 300 !default;
+
+// Wiserei
+$wiserei-base-color: #1FA9FF;

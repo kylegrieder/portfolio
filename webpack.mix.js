@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
 	.js('resources/assets/js/wiserei.js', 'public/js')
    	.sass('resources/assets/sass/app.scss', 'public/css')
+   	.sass('resources/assets/sass/wiserei.scss', 'public/css')
    	.sass('resources/assets/sass/cover.scss', 'public/css')
    	.sass('resources/assets/sass/album.scss', 'public/css')
    	.sass('resources/assets/sass/post.scss', 'public/css')

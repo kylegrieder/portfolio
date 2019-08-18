@@ -10,6 +10,10 @@
     @include('nav.masthead')
 @endsection
 
+@section('styling')
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+@endsection
+
 @section('content')
     <router-view></router-view>
 @endsection

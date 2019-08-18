@@ -1,0 +1,92 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Raleway&display=swap');
+
+// Variables
+@import "_variables";
+$theme-colors: ("wiserei": $wiserei-base-color);
+$spacers: (6: ($spacer * 6), 7: ($spacer * 12));
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
+
+// Element
+// theme color
+$--color-primary: teal;
+// icon font path, required
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import '~element-ui/packages/theme-chalk/src/index';
+
+// Overrides
+html {
+  @extend html;
+  font-family: Raleway, sans-serif;
+}
+
+body {
+  background-image: url('/images/wiserei1.jpg');
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  @extend .navbar;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.navbar-brand {
+  @extend .navbar-brand;
+  font-family: Comfortaa, sans-serif;
+}
+
+.btn-group.b-dropdown.dropdown {
+  button.dropdown-toggle {
+    text-align: left;
+  }
+}
+
+// Custom
+
+.no-opacity {
+  opacity: 1;
+}
+
+.data-by-city-search {
+
+}
+
+.data-by-city-backdrop {
+  //background-color: white;
+  //opacity: 0.55;
+  background: linear-gradient(to top, white, transparent);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.jumbotron-wiserei {
+  background: white;
+  opacity: 0.8;
+}
+
+.wiserei-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+.wiserei-logo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 48px;
+  width: auto;
+}
+

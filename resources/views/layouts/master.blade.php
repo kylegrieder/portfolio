@@ -9,7 +9,6 @@
 
         <title>kyleg.net</title>
 
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
         @yield('styling')
 
     </head>
