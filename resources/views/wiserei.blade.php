@@ -13,10 +13,16 @@
         >
         </wiserei>
     @else
-        <form>
-            <input name="password" type="password" method="get" placeholder="password"/>
-            <button type="submit">Submit</button>
-        </form>
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <form method="post" class="mt-5 justify-content-center">
+                    <div>
+                        <input class="form-control" name="password" type="password" placeholder="password"/></b-input>
+                        <button type="submit" class="btn btn-primary mt-2 ml-5">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     @endif
 @endsection
 

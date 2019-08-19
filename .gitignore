@@ -1,7 +1,5 @@
 /node_modules/
-/public/css
-/public/images
-/public/js
+/public/
 /storage/*.key
 /vendor/
 /.idea/
