@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
 @section('styling')
-<link rel="stylesheet" type="text/css" href="/css/cover.css">
-<link rel="stylesheet" type="text/css" href="/css/post.css">
-<link rel="stylesheet" type="text/css" href="/css/album.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/cover.css">
+    <link rel="stylesheet" type="text/css" href="/css/post.css">
+    <link rel="stylesheet" type="text/css" href="/css/album.css">
 @endsection
 
 @section('masthead')

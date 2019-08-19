@@ -82,7 +82,7 @@ html {
 }
 
 .filter-dropdown {
-  width: 40px;
+  min-width: 35px;
 }
 
 #states-checkbox-group {
@@ -139,6 +139,10 @@ a {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+.filter-label {
+  inline-size: fit-content;
 }
 
 .jumbotron-wiserei {

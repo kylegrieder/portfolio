@@ -3,7 +3,7 @@
         <div class="container-fluid bg-transparent">
             <div :class="wisereiBackground">
                 <div class="navbar navbar-light bg-white mb-3 mt-2">
-                    <span class="d-flex align-items-center navbar-brand" text="Wiserei">
+                    <div class="d-flex align-items-center navbar-brand">
                         <b-img @click="searching = !searching"slot="button-content" class="wiserei-logo cursor-pointer"
                                src="/images/wiserei-logo-medium.png"></b-img>
                         <div v-if="!searching" class="mt-3 ml-4">
@@ -20,7 +20,7 @@
                                 <b-dropdown-item h-ref="/">Data by Forecast</b-dropdown-item>
                             </b-dropdown>
                         </div>
-                    </span>
+                    </div>
                     <span class="nav-item mr-2">
                             <span class="text-wiserei font-weight-bold">Login</span>
                         </span>
@@ -86,18 +86,15 @@
                                     <hr>
 
                                     <!-- wiserei score/grade -->
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="Wiserei Score" v-model="searchFilters.wisereiScore.value"></b-input>
-                                        <b-dropdown class="filter-dropdown" slot="append" variant="wiserei" :text="searchFilters.wisereiScore.operator">
-                                            <b-dropdown-item
-                                                @click="searchFilters.wisereiScore.operator = operator"
-                                                v-for="(operator, index) in operators"
-                                                :key="index"
-                                            >
-                                                {{operator}}
-                                            </b-dropdown-item>
-                                        </b-dropdown>
-                                    </b-input-group>
+                                    <b-form-group class="mt-2" id="wiserei-score-group" label="Min Wiserei Score"
+                                                  label-for="wiserei-score-input" label-class="bg-white filter-label rounded px-2">
+                                        <b-input-group>
+                                            <b-input-group-text slot="append">{{ searchFilters.wisereiScore.value |
+                                                percentify }}
+                                            </b-input-group-text>
+                                            <b-input id="wiserei-score-input" type="range" v-model="searchFilters.wisereiScore.value"></b-input>
+                                        </b-input-group>
+                                    </b-form-group>
 
 
                                     <b-dropdown class="mt-2" variant="light" text="Wiserei Grade">
@@ -115,18 +112,17 @@
                                     <hr>
 
                                     <!-- population growth -->
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="Population Growth" v-model="searchFilters.populationGrowth.value"></b-input>
-                                        <b-dropdown class="filter-dropdown" slot="append" variant="wiserei" :text="searchFilters.populationGrowth.operator">
-                                            <b-dropdown-item
-                                                    @click="searchFilters.populationGrowth.operator = operator"
-                                                    v-for="(operator, index) in operators"
-                                                    :key="index"
-                                            >
-                                                {{operator}}
-                                            </b-dropdown-item>
-                                        </b-dropdown>
-                                    </b-input-group>
+                                    <b-form-group class="mt-2" id="population-growth-group"
+                                                  label="Min Population Growth" label-for="population-growth-input"
+                                                  label-class="bg-white filter-label rounded px-2">
+                                        <b-input-group>
+                                            <b-input-group-text slot="append">{{ searchFilters.populationGrowth.value |
+                                                percentify }}
+                                            </b-input-group-text>
+                                            <b-input id="population-growth-input" type="range"
+                                                     v-model="searchFilters.populationGrowth.value"></b-input>
+                                        </b-input-group>
+                                    </b-form-group>
 
 
                                     <b-dropdown class="mt-2" variant="light" text="Population Growth Grade">
@@ -144,18 +140,15 @@
                                     <hr>
 
                                     <!-- income growth -->
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="Income Growth" v-model="searchFilters.incomeGrowth.value"></b-input>
-                                        <b-dropdown class="filter-dropdown" slot="append" variant="wiserei" :text="searchFilters.incomeGrowth.operator">
-                                            <b-dropdown-item
-                                                    @click="searchFilters.incomeGrowth.operator = operator"
-                                                    v-for="(operator, index) in operators"
-                                                    :key="index"
-                                            >
-                                                {{operator}}
-                                            </b-dropdown-item>
-                                        </b-dropdown>
-                                    </b-input-group>
+                                    <b-form-group class="mt-2" id="income-growth-group" label="Min Income Growth"
+                                                  label-for="income-growth-input"  label-class="bg-white filter-label rounded px-2">
+                                        <b-input-group>
+                                            <b-input-group-text slot="append">{{ searchFilters.incomeGrowth.value |
+                                                percentify }}
+                                            </b-input-group-text>
+                                            <b-input id="income-growth-input" type="range" v-model="searchFilters.incomeGrowth.value"></b-input>
+                                        </b-input-group>
+                                    </b-form-group>
 
 
                                     <b-dropdown class="mt-2" variant="light" text="Income Growth Grade">
@@ -173,18 +166,18 @@
                                     <hr>
 
                                     <!-- house value -->
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="House Value" v-model="searchFilters.houseValue.value"></b-input>
-                                        <b-dropdown class="filter-dropdown" slot="append" variant="wiserei" :text="searchFilters.houseValue.operator">
-                                            <b-dropdown-item
-                                                    @click="searchFilters.houseValue.operator = operator"
-                                                    v-for="(operator, index) in operators"
-                                                    :key="index"
-                                            >
-                                                {{operator}}
-                                            </b-dropdown-item>
-                                        </b-dropdown>
-                                    </b-input-group>
+                                    <b-form-group class="mt-2" id="house-value-growth-group"
+                                                  label="Min House Value Growth" label-for="house-value-growth-input"
+                                                  label-class="bg-white filter-label rounded px-2">
+                                        <b-input-group>
+                                            <b-input-group-text slot="append">{{ searchFilters.houseValueGrowth.value |
+                                                percentify }}
+                                            </b-input-group-text>
+                                            <b-input id="house-value-growth-input"
+                                                     type="range"
+                                                     v-model="searchFilters.houseValueGrowth.value"></b-input>
+                                        </b-input-group>
+                                    </b-form-group>
 
 
                                     <b-dropdown class="mt-2" variant="light" text="House Value Grade">
@@ -192,7 +185,7 @@
                                             <b-form-checkbox-group
                                                 stacked
                                                 id="house-value-grade-checkbox-group"
-                                                v-model="searchFilters.houseValue.grades"
+                                                v-model="searchFilters.houseValueGrowth.grades"
                                                 :options="letterGrades"
                                             >
                                             </b-form-checkbox-group>
@@ -202,11 +195,11 @@
                                     <hr>
 
                                     <!-- crime -->
-                                    <b-dropdown class="mt-2" variant="light" text="Crime Level Grade">
+                                    <b-dropdown class="mt-2 mb-2" variant="light" text="Crime Level Grade">
                                         <b-dropdown-form>
                                             <b-form-checkbox-group
                                                     stacked
-                                                    id="crimeChangeh-grade-checkbox-group"
+                                                    id="crime-change-grade-checkbox-group"
                                                     v-model="searchFilters.crimeLevel.grades"
                                                     :options="letterGrades"
                                             >
@@ -214,18 +207,21 @@
                                         </b-dropdown-form>
                                     </b-dropdown>
 
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="Crime Change" v-model="searchFilters.crimeChange.value"></b-input>
-                                        <b-dropdown class="filter-dropdown" slot="append" variant="wiserei" :text="searchFilters.crimeChange.operator">
-                                            <b-dropdown-item
-                                                    @click="searchFilters.crimeChange.operator = operator"
-                                                    v-for="(operator, index) in operators"
-                                                    :key="index"
-                                            >
-                                                {{operator}}
-                                            </b-dropdown-item>
-                                        </b-dropdown>
-                                    </b-input-group>
+                                    <b-form-group
+                                        class="mt-2"
+                                        id="crime-change-group"
+                                        label="Min Crime Change Value"
+                                        label-for="crime-change-input"
+                                        label-class="bg-white filter-label rounded px-2"
+                                    >
+                                        <b-input-group>
+                                            <b-input-group-text slot="append">{{ searchFilters.crimeChange.value |
+                                                percentify }}
+                                            </b-input-group-text>
+                                            <b-input id="crime-change-input" type="range" min="-100" max="0"
+                                                     v-model="searchFilters.crimeChange.value"></b-input>
+                                        </b-input-group>
+                                    </b-form-group>
 
                                     <b-dropdown class="mt-2" variant="light" text="Crime Change Grade">
                                         <b-dropdown-form>
@@ -241,7 +237,14 @@
 
                                 </div>
                                 <div class="mt-2">
-                                    <b-button @click="search" size="lg" variant="wiserei">Search</b-button>
+                                    <div class="row">
+                                        <div class="col">
+                                            <b-button @click="search" size="lg" variant="wiserei">Search</b-button>
+                                        </div>
+                                        <div class="col">
+                                            <b-button @click="clearFilters" size="lg" variant="danger">Clear</b-button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-10">
@@ -581,42 +584,33 @@
                 loading: true,
                 loadingComplete: false,
                 loadingRecords: false,
-                operators: [
-                    '<', '=', '>'
-                ],
                 records: [],
                 searchCity: null,
                 searchFilters: {
                     states: [],
                     crimeChange: {
                         grades: [],
-                        operator: '',
-                        value: ''
+                        value: '0'
                     },
                     crimeLevel: {
                         grades: [],
-                        operator: '',
                         value: ''
                     },
-                    houseValue: {
+                    houseValueGrowth: {
                         grades: [],
-                        operator: '',
-                        value: ''
+                        value: '0'
                     },
                     incomeGrowth: {
                         grades: [],
-                        operator: '',
-                        value: ''
+                        value: '0'
                     },
                     populationGrowth: {
                         grades: [],
-                        operator: '',
-                        value: ''
+                        value: '0'
                     },
                     wisereiScore: {
                         grades: [],
-                        operator: '',
-                        value: ''
+                        value: '0'
                     }
                 },
                 searching: false,
@@ -629,9 +623,14 @@
                 }
             }
         },
+        filters: {
+            percentify: function(value) {
+                return value + '.o%'
+            }
+        },
         computed: {
             filterByFormula: function () {
-                let city, state
+                let city
                 let formula = `AND(TRUE()`
 
                 if (this.searchCity) {
@@ -647,7 +646,7 @@
                 }
 
                 Object.entries(this.searchFilters).forEach(([key, value]) => {
-                    if (key != 'states') {
+                    if (key !== 'states') {
                         const startCaseKey = _.startCase(key)
                         if (value.grades.length || value.value) {
                             formula += `, OR(FALSE()`
@@ -658,7 +657,8 @@
                             })
                         }
                         if (value.value) {
-                            formula += `, {${startCaseKey}} ${value.operator} '${value.value}'`
+                            let operator = key === 'crimeChange' ? '<=' : '>='
+                            formula += `, {${startCaseKey}} ${operator} '${value.value}'`
                         }
                         if (value.grades.length || value.value) {
                             formula += `)`
@@ -677,6 +677,35 @@
             }
         },
         methods: {
+            clearFilters() {
+                this.searchFilters = {
+                    states: [],
+                        crimeChange: {
+                        grades: [],
+                            value: '0'
+                    },
+                    crimeLevel: {
+                        grades: [],
+                            value: ''
+                    },
+                    houseValueGrowth: {
+                        grades: [],
+                            value: '0'
+                    },
+                    incomeGrowth: {
+                        grades: [],
+                            value: '0'
+                    },
+                    populationGrowth: {
+                        grades: [],
+                            value: '0'
+                    },
+                    wisereiScore: {
+                        grades: [],
+                            value: '0'
+                    }
+                }
+            },
             fetchRecords(event) {
                 window.events.$emit('fetchRecords', event)
                 window.events.$on('fetchedRecords', () => {

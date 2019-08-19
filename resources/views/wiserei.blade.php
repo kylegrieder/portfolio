@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('styling')
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/wiserei.css">
 @endsection
 
@@ -15,9 +14,9 @@
     @else
         <div class="container">
             <div class="d-flex justify-content-center">
-                <form method="post" class="mt-5 justify-content-center">
+                <form method="get" action="/wiserei" class="mt-5 justify-content-center">
                     <div>
-                        <input class="form-control" name="password" type="password" placeholder="password"/></b-input>
+                        <input class="form-control" name="password" id="password" type="password" placeholder="password"/></b-input>
                         <button type="submit" class="btn btn-primary mt-2 ml-5">Submit</button>
                     </div>
                 </form>
