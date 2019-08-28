@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('masthead')
-    @include('nav.masthead')
-@endsection
-
 @section('styling')
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 @endsection
