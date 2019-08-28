@@ -1,8 +1,7 @@
 /node_modules/
-/public/css
-/public/images
-/public/js
+/public/
 /storage/*.key
+/storage/debugbar/
 /vendor/
 /.idea/
 /.vscode

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('styling')
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+@endsection
+
 @section('content')
     <movie-search
         movies="{{ $movies }}"
