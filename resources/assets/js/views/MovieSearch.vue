@@ -44,7 +44,7 @@
             genres: {
                 type: Array,
                 required: true
-            }
+            },
             imageUrl: {
                 type: String
             }

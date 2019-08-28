@@ -13,6 +13,12 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'airtable' => [
+        'apiKey' => env('AIRTABLE_API_KEY'),
+        'wiserei' => [
+            'base' => env('AIRTABLE_WISEREI_BASE'),
+        ]
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
