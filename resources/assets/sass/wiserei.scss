@@ -18,9 +18,6 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import '~element-ui/packages/theme-chalk/src/index';
 
 // Overrides
-body {
-    overflow: hidden;
-}
 
 html {
   @extend html;
@@ -70,7 +67,7 @@ html {
 }
 
 .wiserei-background {
-  height: 75%;
+  height: 90%;
   background-image: url('/images/wiserei1.jpg');
   background-position: 0% 0%;
   background-size: cover;

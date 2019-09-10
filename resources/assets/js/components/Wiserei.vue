@@ -2,15 +2,20 @@
     <div>
         <div class="container-fluid bg-transparent">
             <div :class="wisereiBackground">
-                <div class="navbar navbar-light bg-white mb-3 mt-2">
-                    <div class="d-flex align-items-center navbar-brand">
-                        <b-img @click="searching = !searching"slot="button-content" class="wiserei-logo cursor-pointer"
-                               src="/images/wiserei-logo-medium.png"></b-img>
+                <div class="row navbar navbar-light bg-white mb-5 mt-2">
+                    <div class="col-12 col-md-2 text-center text-md-left">
+                        <b-img @click="searching = !searching"
+                               slot="button-content"
+                               class="wiserei-logo cursor-pointer"
+                               src="/images/wiserei-logo-medium.png">
+                        </b-img>
+                    </div>
+                    <div class="col-12 col-md ml-sm-4">
                         <div v-if="!searching" class="mt-3 ml-4">
                             Search By:
-                            <a class="col text-wiserei"><u>City</u></a> |
-                            <a class="col">Price</a> |
-                            <a class="col">Forecast</a>
+                            <a class="mx-2 text-wiserei"><u>City</u></a> |
+                            <a class="mx-2">Price</a> |
+                            <a class="mx-2">Forecast</a>
                         </div>
                         <div v-if="searching" id="data-type-dropdown" class="mt-3 ml-4">
                             <b-dropdown class="w-100 font-weight-bold mb-2" variant="wiserei"
@@ -21,492 +26,511 @@
                             </b-dropdown>
                         </div>
                     </div>
-                    <span class="nav-item mr-2">
-                            <span class="text-wiserei font-weight-bold">Login</span>
-                        </span>
+<!--                    <div class="col col-md-1 nav-item mr-2">-->
+<!--                        <span class="text-wiserei font-weight-bold">Login</span>-->
+<!--                    </div>-->
                 </div>
-                <div v-if="!searching" id="data-by-city-landing" class="data-by-city-landing bg-transparent">
-                    <b-jumbotron class="bg-white mt-5 mx-n1">
-                        <div slot="header" class="display-4 text-lg-center text-left">
-                            Are you ready to make your next big property investment?
-                        </div>
-                        <div slot="lead" class="text-center">
-                            We have the tools to help you find the <span class="font-weight-bold">best</span> properties, in
-                            the <span class="font-weight-bold">best</span> neighborhoods, in the
-                            <span class="font-weight-bold">best</span>
-                            cities. Start your search <span class="font-weight-bold"><u>now</u></span>.
-                        </div>
-                        <hr class="my-4">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <b-dropdown menu-class="scrollable-dropdown" size="lg" variant="wiserei"
-                                        :text="searchFilters.states.length ? searchFilters.states[0] : 'State'">
-                                <b-dropdown-item @click="addState(state)" :key="index" v-for="(state, index) in states">{{
-                                    state.text }}
-                                </b-dropdown-item>
-                            </b-dropdown>
-                            <div class="col-3">
-                                <b-input @keyup.enter="search" size="lg" v-model="searchCity"
-                                         placeholder="Enter a city..."></b-input>
+                <div class="row">
+                    <div v-if="!searching" id="data-by-city-landing" class="data-by-city-landing bg-transparent">
+                        <b-jumbotron class="bg-white mt-5 mx-n1">
+                            <div slot="header" class="display-4 d-none d-md-block text-md-center text-left">
+                                Are you ready to make your next big property investment?
                             </div>
+                            <div slot="header" class="h1 text-center d-md-none">
+                                Are you ready to make your next big property investment?
+                            </div>
+                            <div slot="lead" class="text-center">
+                                We have the tools to help you find the <span class="font-weight-bold">best</span>
+                                properties, in
+                                the <span class="font-weight-bold">best</span> neighborhoods, in the
+                                <span class="font-weight-bold">best</span>
+                                cities. Start your search <span class="font-weight-bold"><u>now</u></span>.
+                            </div>
+                            <hr class="my-4">
 
-                            <b-btn @click="search" size="lg" variant="wiserei">Search</b-btn>
+                            <div class="row">
+                                <div class="col-3 col-md-2 ml-2 ml-md-0 text-center">
+                                    <b-dropdown menu-class="scrollable-dropdown" size="lg" variant="wiserei"
+                                                :text="searchFilters.states.length ? searchFilters.states[0] : 'State'">
+                                        <b-dropdown-item @click="addState(state)" :key="index"
+                                                         v-for="(state, index) in states">{{
+                                            state.text }}
+                                        </b-dropdown-item>
+                                    </b-dropdown>
+                                </div>
+                                <div class="col-8 ml-2 ml-md-0">
+                                    <b-input @keyup.enter="search" size="lg" v-model="searchCity"
+                                             placeholder="Enter a city..."></b-input>
+                                </div>
+                                <div class="col-12 mt-2 col-md-2 mt-md-0 text-center">
+                                    <b-btn @click="search" size="lg" variant="wiserei">Search</b-btn>
+                                </div>
+                            </div>
+                        </b-jumbotron>
+                        <div class="offset-2 col-8">
+                            <div class="row justify-content-center">
+                                <div class="col-6 col-md-4 col-lg mb-3">
+                                    <div class="icon-large zillow" id="zillow-logo"></div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg my-2">
+                                    <div class="icon-large trulia" id="trulia-logo"></div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg my-2">
+                                    <div class="icon-large realtorcom" id="realtorcom-logo"></div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg my-2">
+                                    <div class="icon-large redfin" id="redfin-logo"></div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg my-2">
+                                    <div class="icon-large homie" id="homie-logo"></div>
+                                </div>
+                            </div>
                         </div>
-                    </b-jumbotron>
-                </div>
-                <div v-show="searching" id="data-by-city-search" class="data-by-city-search">
-                    <div class="data-by-city-backdrop"></div>
-                    <div class="data-by-city-search mx-3">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="rounded bg-white text-muted font-weight-bold mb-2">
-                                    <h4 class="ml-3 py-2">
-                                        Refine Your Search:
-                                    </h4>
-                                </div>
-                                <div id="filter-dropdowns" class="filter-dropdowns mt-1" style="max-height: calc(80vh - 100px); overflow-x: auto;">
-                                    <hr>
+                    </div>
+                    <div v-show="searching" id="data-by-city-search" class="data-by-city-search">
+                        <div class="data-by-city-backdrop"></div>
+                        <div class="data-by-city-search mx-3">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="rounded bg-white text-muted font-weight-bold mb-2">
+                                        <h4 class="ml-3 py-2">
+                                            Refine Your Search:
+                                        </h4>
+                                    </div>
+                                    <div id="filter-dropdowns" class="filter-dropdowns mt-1"
+                                         style="max-height: calc(80vh - 100px); overflow-x: auto;">
+                                        <hr>
 
-                                    <b-input-group class="mt-2">
-                                        <b-input placeholder="City" v-model="searchCity"></b-input>
-                                    </b-input-group>
-
-                                    <b-dropdown class="mt-2" variant="light" text="States">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="states-checkbox-group"
-                                                v-model="searchFilters.states"
-                                                :options="states"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
-
-                                    <hr>
-
-                                    <!-- wiserei score/grade -->
-                                    <b-form-group class="mt-2" id="wiserei-score-group" label="Min Wiserei Score"
-                                                  label-for="wiserei-score-input" label-class="bg-white filter-label rounded px-2">
-                                        <b-input-group>
-                                            <b-input-group-text slot="append">{{ searchFilters.wisereiScore.value |
-                                                percentify }}
-                                            </b-input-group-text>
-                                            <b-input id="wiserei-score-input" type="range" v-model="searchFilters.wisereiScore.value"></b-input>
+                                        <b-input-group class="mt-2">
+                                            <b-input placeholder="City" v-model="searchCity"></b-input>
                                         </b-input-group>
-                                    </b-form-group>
+
+                                        <b-dropdown class="mt-2" variant="light" text="States">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="states-checkbox-group"
+                                                        v-model="searchFilters.states"
+                                                        :options="states"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
+
+                                        <hr>
+
+                                        <!-- wiserei score/grade -->
+                                        <b-form-group class="mt-2" id="wiserei-score-group" label="Min Wiserei Score"
+                                                      label-for="wiserei-score-input"
+                                                      label-class="bg-white filter-label rounded px-2">
+                                            <b-input-group>
+                                                <b-input-group-text slot="append">{{ searchFilters.wisereiScore.value |
+                                                    percentify }}
+                                                </b-input-group-text>
+                                                <b-input id="wiserei-score-input" type="range"
+                                                         v-model="searchFilters.wisereiScore.value"></b-input>
+                                            </b-input-group>
+                                        </b-form-group>
 
 
-                                    <b-dropdown class="mt-2" variant="light" text="Wiserei Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="wiserei-grade-checkbox-group"
-                                                v-model="searchFilters.wisereiScore.grades"
-                                                :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
+                                        <b-dropdown class="mt-2" variant="light" text="Wiserei Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="wiserei-grade-checkbox-group"
+                                                        v-model="searchFilters.wisereiScore.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
 
-                                    <hr>
+                                        <hr>
 
-                                    <!-- population growth -->
-                                    <b-form-group class="mt-2" id="population-growth-group"
-                                                  label="Min Population Growth" label-for="population-growth-input"
-                                                  label-class="bg-white filter-label rounded px-2">
-                                        <b-input-group>
-                                            <b-input-group-text slot="append">{{ searchFilters.populationGrowth.value |
-                                                percentify }}
-                                            </b-input-group-text>
-                                            <b-input id="population-growth-input" type="range"
-                                                     v-model="searchFilters.populationGrowth.value"></b-input>
-                                        </b-input-group>
-                                    </b-form-group>
-
-
-                                    <b-dropdown class="mt-2" variant="light" text="Population Growth Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="population-growth-grade-checkbox-group"
-                                                v-model="searchFilters.populationGrowth.grades"
-                                                :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
-
-                                    <hr>
-
-                                    <!-- income growth -->
-                                    <b-form-group class="mt-2" id="income-growth-group" label="Min Income Growth"
-                                                  label-for="income-growth-input"  label-class="bg-white filter-label rounded px-2">
-                                        <b-input-group>
-                                            <b-input-group-text slot="append">{{ searchFilters.incomeGrowth.value |
-                                                percentify }}
-                                            </b-input-group-text>
-                                            <b-input id="income-growth-input" type="range" v-model="searchFilters.incomeGrowth.value"></b-input>
-                                        </b-input-group>
-                                    </b-form-group>
+                                        <!-- population growth -->
+                                        <b-form-group class="mt-2" id="population-growth-group"
+                                                      label="Min Population Growth" label-for="population-growth-input"
+                                                      label-class="bg-white filter-label rounded px-2">
+                                            <b-input-group>
+                                                <b-input-group-text slot="append">{{
+                                                    searchFilters.populationGrowth.value |
+                                                    percentify }}
+                                                </b-input-group-text>
+                                                <b-input id="population-growth-input" type="range"
+                                                         v-model="searchFilters.populationGrowth.value"></b-input>
+                                            </b-input-group>
+                                        </b-form-group>
 
 
-                                    <b-dropdown class="mt-2" variant="light" text="Income Growth Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="income-growth-grade-checkbox-group"
-                                                v-model="searchFilters.incomeGrowth.grades"
-                                                :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
+                                        <b-dropdown class="mt-2" variant="light" text="Population Growth Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="population-growth-grade-checkbox-group"
+                                                        v-model="searchFilters.populationGrowth.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
 
-                                    <hr>
+                                        <hr>
 
-                                    <!-- house value -->
-                                    <b-form-group class="mt-2" id="house-value-growth-group"
-                                                  label="Min House Value Growth" label-for="house-value-growth-input"
-                                                  label-class="bg-white filter-label rounded px-2">
-                                        <b-input-group>
-                                            <b-input-group-text slot="append">{{ searchFilters.houseValueGrowth.value |
-                                                percentify }}
-                                            </b-input-group-text>
-                                            <b-input id="house-value-growth-input"
-                                                     type="range"
-                                                     v-model="searchFilters.houseValueGrowth.value"></b-input>
-                                        </b-input-group>
-                                    </b-form-group>
+                                        <!-- income growth -->
+                                        <b-form-group class="mt-2" id="income-growth-group" label="Min Income Growth"
+                                                      label-for="income-growth-input"
+                                                      label-class="bg-white filter-label rounded px-2">
+                                            <b-input-group>
+                                                <b-input-group-text slot="append">{{ searchFilters.incomeGrowth.value |
+                                                    percentify }}
+                                                </b-input-group-text>
+                                                <b-input id="income-growth-input" type="range"
+                                                         v-model="searchFilters.incomeGrowth.value"></b-input>
+                                            </b-input-group>
+                                        </b-form-group>
 
 
-                                    <b-dropdown class="mt-2" variant="light" text="House Value Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="house-value-grade-checkbox-group"
-                                                v-model="searchFilters.houseValueGrowth.grades"
-                                                :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
+                                        <b-dropdown class="mt-2" variant="light" text="Income Growth Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="income-growth-grade-checkbox-group"
+                                                        v-model="searchFilters.incomeGrowth.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
 
-                                    <hr>
+                                        <hr>
 
-                                    <!-- crime -->
-                                    <b-dropdown class="mt-2 mb-2" variant="light" text="Crime Level Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                    stacked
-                                                    id="crime-change-grade-checkbox-group"
-                                                    v-model="searchFilters.crimeLevel.grades"
-                                                    :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
+                                        <!-- house value -->
+                                        <b-form-group class="mt-2" id="house-value-growth-group"
+                                                      label="Min House Value Growth"
+                                                      label-for="house-value-growth-input"
+                                                      label-class="bg-white filter-label rounded px-2">
+                                            <b-input-group>
+                                                <b-input-group-text slot="append">{{
+                                                    searchFilters.houseValueGrowth.value |
+                                                    percentify }}
+                                                </b-input-group-text>
+                                                <b-input id="house-value-growth-input"
+                                                         type="range"
+                                                         v-model="searchFilters.houseValueGrowth.value"></b-input>
+                                            </b-input-group>
+                                        </b-form-group>
 
-                                    <b-form-group
-                                        class="mt-2"
-                                        id="crime-change-group"
-                                        label="Min Crime Change Value"
-                                        label-for="crime-change-input"
-                                        label-class="bg-white filter-label rounded px-2"
-                                    >
-                                        <b-input-group>
-                                            <b-input-group-text slot="append">{{ searchFilters.crimeChange.value |
-                                                percentify }}
-                                            </b-input-group-text>
-                                            <b-input id="crime-change-input" type="range" min="-100" max="0"
-                                                     v-model="searchFilters.crimeChange.value"></b-input>
-                                        </b-input-group>
-                                    </b-form-group>
 
-                                    <b-dropdown class="mt-2" variant="light" text="Crime Change Grade">
-                                        <b-dropdown-form>
-                                            <b-form-checkbox-group
-                                                stacked
-                                                id="crime-change-grade-checkbox-group"
-                                                v-model="searchFilters.crimeChange.grades"
-                                                :options="letterGrades"
-                                            >
-                                            </b-form-checkbox-group>
-                                        </b-dropdown-form>
-                                    </b-dropdown>
+                                        <b-dropdown class="mt-2" variant="light" text="House Value Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="house-value-grade-checkbox-group"
+                                                        v-model="searchFilters.houseValueGrowth.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
 
-                                </div>
-                                <div class="mt-2">
-                                    <div class="row">
-                                        <div class="col">
-                                            <b-button @click="search" size="lg" variant="wiserei">Search</b-button>
-                                        </div>
-                                        <div class="col">
-                                            <b-button @click="clearFilters" size="lg" variant="danger">Clear</b-button>
+                                        <hr>
+
+                                        <!-- crime -->
+                                        <b-dropdown class="mt-2 mb-2" variant="light" text="Crime Level Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="crime-change-grade-checkbox-group"
+                                                        v-model="searchFilters.crimeLevel.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
+
+                                        <b-form-group
+                                                class="mt-2"
+                                                id="crime-change-group"
+                                                label="Min Crime Change Value"
+                                                label-for="crime-change-input"
+                                                label-class="bg-white filter-label rounded px-2"
+                                        >
+                                            <b-input-group>
+                                                <b-input-group-text slot="append">{{ searchFilters.crimeChange.value |
+                                                    percentify }}
+                                                </b-input-group-text>
+                                                <b-input id="crime-change-input" type="range" min="-100" max="0"
+                                                         v-model="searchFilters.crimeChange.value"></b-input>
+                                            </b-input-group>
+                                        </b-form-group>
+
+                                        <b-dropdown class="mt-2" variant="light" text="Crime Change Grade">
+                                            <b-dropdown-form>
+                                                <b-form-checkbox-group
+                                                        stacked
+                                                        id="crime-change-grade-checkbox-group"
+                                                        v-model="searchFilters.crimeChange.grades"
+                                                        :options="letterGrades"
+                                                >
+                                                </b-form-checkbox-group>
+                                            </b-dropdown-form>
+                                        </b-dropdown>
+
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="row">
+                                            <div class="col">
+                                                <b-button @click="search" size="lg" variant="wiserei">Search</b-button>
+                                            </div>
+                                            <div class="col">
+                                                <b-button @click="clearFilters" size="lg" variant="danger">Clear
+                                                </b-button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-10">
-                                <el-table
-                                        border
-                                        style="width: 100%; height: 90vh;"
-                                        v-loading="loading"
-                                        :data="records"
-                                        :default-sort="{prop: 'Wiserei Score', order: 'descending'}"
-                                        :height="window.height - 130"
-                                        :header-row-style="getHeaderStyle"
-                                >
-                                    <el-table-column
-                                            fixed
-                                            resizeable
-                                            sortable
-                                            width="120"
-                                            prop="City"
-                                            label="City"
-                                            :filters="columnFilters['city']"
-                                            :filter-method="handleFilter"
+                                <div class="col-10">
+                                    <el-table
+                                            border
+                                            style="width: 100%; height: 90vh;"
+                                            v-loading="loading"
+                                            :data="records"
+                                            :default-sort="{prop: 'Wiserei Score', order: 'descending'}"
+                                            :height="window.height - 130"
+                                            :header-row-style="getHeaderStyle"
                                     >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="120"
-                                            prop="State"
-                                            label="State"
-                                            :filters="columnFilters['state']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="170"
-                                            prop="Wiserei Score"
-                                            label="Wiserei Score"
-                                            :filters="columnFilters['wisereiScore']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="170"
-                                            prop="Wiserei Grade"
-                                            label="Wiserei Grade"
-                                            :filters="columnFilters['wisereiGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="180"
-                                            prop="Population 2000"
-                                            label="Population 2000"
-                                            :filters="columnFilters['population2000']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="180"
-                                            prop="Population 2010"
-                                            label="Population 2010"
-                                            :filters="columnFilters['population2010']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="190"
-                                            prop="Recent Population"
-                                            label="Recent Population"
-                                            :filters="columnFilters['recentPopulation']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="220"
-                                            prop="Recent Population Year"
-                                            label="Recent Population Year"
-                                            :filters="columnFilters['recentPopulationYear']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="190"
-                                            prop="Population Growth"
-                                            label="Population Growth"
-                                            :filters="columnFilters['populationGrowth']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="240"
-                                            prop="Population Growth Grade"
-                                            label="Population Growth Grade"
-                                            :filters="columnFilters['populationGrowthGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="290"
-                                            prop="Median Household Income 2016"
-                                            label="Median Household Income 2016"
-                                            :filters="columnFilters['medianHouseholdIncome2016']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="290"
-                                            prop="Median Household Income 2000"
-                                            label="Median Household Income 2000"
-                                            :filters="columnFilters['medianHouseholdIncome2000']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="170"
-                                            prop="Income Growth"
-                                            label="Income Growth"
-                                            :filters="columnFilters['incomeGrowth']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="210"
-                                            prop="Income Growth Grade"
-                                            label="Income Growth Grade"
-                                            :filters="columnFilters['incomeGrowthGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="250"
-                                            prop="Median House Value 2016"
-                                            label="Median House Value 2016"
-                                            :filters="columnFilters['medianHouseValue2016']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="250"
-                                            prop="Median House Value 2000"
-                                            label="Median House Value 2000"
-                                            :filters="columnFilters['medianHouseValue2000']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="210"
-                                            prop="House Value Growth"
-                                            label="House Value Growth"
-                                            :filters="columnFilters['houseValueGrowth']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="250"
-                                            prop="House Value Growth Grade"
-                                            label="House Value Growth Grade"
-                                            :filters="columnFilters['houseValueGrowthGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="190"
-                                            prop="Crime Level Grade"
-                                            label="Crime Level Grade"
-                                            :filters="columnFilters['crimeLevelGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="170"
-                                            prop="Crime Change"
-                                            label="Crime Change"
-                                            :filters="columnFilters['crimeChange']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
-                                    <el-table-column
-                                            resizeable
-                                            sortable
-                                            width="210"
-                                            prop="Crime Change Grade"
-                                            label="Crime Change Grade"
-                                            :filters="columnFilters['crimeChangeGrade']"
-                                            :filter-method="handleFilter"
-                                    >
-                                    </el-table-column>
+                                        <el-table-column
+                                                fixed
+                                                resizeable
+                                                sortable
+                                                width="120"
+                                                prop="City"
+                                                label="City"
+                                                :filters="columnFilters['city']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="120"
+                                                prop="State"
+                                                label="State"
+                                                :filters="columnFilters['state']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="170"
+                                                prop="Wiserei Score"
+                                                label="Wiserei Score"
+                                                :filters="columnFilters['wisereiScore']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="170"
+                                                prop="Wiserei Grade"
+                                                label="Wiserei Grade"
+                                                :filters="columnFilters['wisereiGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="180"
+                                                prop="Population 2000"
+                                                label="Population 2000"
+                                                :filters="columnFilters['population2000']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="180"
+                                                prop="Population 2010"
+                                                label="Population 2010"
+                                                :filters="columnFilters['population2010']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="190"
+                                                prop="Recent Population"
+                                                label="Recent Population"
+                                                :filters="columnFilters['recentPopulation']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="220"
+                                                prop="Recent Population Year"
+                                                label="Recent Population Year"
+                                                :filters="columnFilters['recentPopulationYear']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="190"
+                                                prop="Population Growth"
+                                                label="Population Growth"
+                                                :filters="columnFilters['populationGrowth']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="240"
+                                                prop="Population Growth Grade"
+                                                label="Population Growth Grade"
+                                                :filters="columnFilters['populationGrowthGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="290"
+                                                prop="Median Household Income 2016"
+                                                label="Median Household Income 2016"
+                                                :filters="columnFilters['medianHouseholdIncome2016']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="290"
+                                                prop="Median Household Income 2000"
+                                                label="Median Household Income 2000"
+                                                :filters="columnFilters['medianHouseholdIncome2000']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="170"
+                                                prop="Income Growth"
+                                                label="Income Growth"
+                                                :filters="columnFilters['incomeGrowth']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="210"
+                                                prop="Income Growth Grade"
+                                                label="Income Growth Grade"
+                                                :filters="columnFilters['incomeGrowthGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="250"
+                                                prop="Median House Value 2016"
+                                                label="Median House Value 2016"
+                                                :filters="columnFilters['medianHouseValue2016']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="250"
+                                                prop="Median House Value 2000"
+                                                label="Median House Value 2000"
+                                                :filters="columnFilters['medianHouseValue2000']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="210"
+                                                prop="House Value Growth"
+                                                label="House Value Growth"
+                                                :filters="columnFilters['houseValueGrowth']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="250"
+                                                prop="House Value Growth Grade"
+                                                label="House Value Growth Grade"
+                                                :filters="columnFilters['houseValueGrowthGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="190"
+                                                prop="Crime Level Grade"
+                                                label="Crime Level Grade"
+                                                :filters="columnFilters['crimeLevelGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="170"
+                                                prop="Crime Change"
+                                                label="Crime Change"
+                                                :filters="columnFilters['crimeChange']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
+                                        <el-table-column
+                                                resizeable
+                                                sortable
+                                                width="210"
+                                                prop="Crime Change Grade"
+                                                label="Crime Change Grade"
+                                                :filters="columnFilters['crimeChangeGrade']"
+                                                :filter-method="handleFilter"
+                                        >
+                                        </el-table-column>
 
-                                    <infinite-loading
-                                            v-if="!loadingComplete"
-                                            slot="append"
-                                            :distance="1"
-                                            @infinite="fetchRecords"
-                                            spinner="spiral"
-                                            force-use-infinite-wrapper=".el-table__body-wrapper"
-                                    >
-                                    </infinite-loading>
-                                    <div class="text-center" v-if="loadingComplete" slot="append">All Records Returned.</div>
-                                </el-table>
+                                        <infinite-loading
+                                                v-if="!loadingComplete"
+                                                slot="append"
+                                                :distance="1"
+                                                @infinite="fetchRecords"
+                                                spinner="spiral"
+                                                force-use-infinite-wrapper=".el-table__body-wrapper"
+                                        >
+                                        </infinite-loading>
+                                        <div class="text-center" v-if="loadingComplete" slot="append">All Records
+                                            Returned.
+                                        </div>
+                                    </el-table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div v-if="!searching" class="d-flex row" id="sponsor-logos">
-                <div class="offset-2 col-8">
-                    <div class="row justify-content-center">
-                        <div class="col-6 col-md-4 col-lg mb-3">
-                            <div class="icon-large zillow" id="zillow-logo"></div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg my-2">
-                            <div class="icon-large trulia" id="trulia-logo"></div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg my-2">
-                            <div class="icon-large realtorcom" id="realtorcom-logo"></div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg my-2">
-                            <div class="icon-large redfin" id="redfin-logo"></div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg my-2">
-                            <div class="icon-large homie" id="homie-logo"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="position-absolute fixed-bottom text-center">
+            <div class="fixed-bottom text-center">
                 Wiserei™. Copyright 2019. All rights reserved. Click <a href="#">here</a> to view our privacy policy.
             </div>
         </div>

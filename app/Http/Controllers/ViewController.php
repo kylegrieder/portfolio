@@ -39,10 +39,9 @@ class ViewController extends Controller
 
     public function wiserei(Request $request)
     {
-        $authenticated = $request->input('password') === 'robert';
         $airtableApiKey = config('services.airtable.apiKey');
         $airtableWisereiBase = config('services.airtable.wiserei.base');
 
-        return view('wiserei', compact('authenticated', 'airtableApiKey', 'airtableWisereiBase'));
+        return view('wiserei', compact('airtableApiKey', 'airtableWisereiBase'));
     }
 }
