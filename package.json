@@ -21,7 +21,7 @@
         "bootstrap": "^4.0.0",
         "bootstrap-vue": "^2.0.0-rc.15",
         "element-ui": "^2.11.1",
-        "jquery": "^3.3.1",
+        "jquery": "^3.5.0",
         "lodash": "^4.17.10",
         "moment": "^2.22.1",
         "npm": "^5.8.0",
