@@ -7,40 +7,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
         <title>kyleg.net</title>
 
-        @yield('styling')
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
 
     </head>
 
     <body>
         <div id="app">
-            @if (!Request::is('wiserei'))
-            <div class="container">
-                <div class="flex-center sticky-top position-ref full-height masthead-bg">
-                    <div class="inner-cover inner">
-                        <div class="row-center">
-                            <a href="https://twitter.com/kylemcgriffin" target="_blank"><img class="svg" src="/images/twitter.svg" alt="twitter"></img></a>
-                            <a href="https://instagram.com/kgfromthemv" target="_blank"><img class="svg" src="/images/instagram.svg" alt="instagram"></img></a>
-                            <a href="https://github.com/kylegrieder" target="_blank"><img class="svg" src="/images/github.svg" alt="gitHub"></img></a>
-                        </div>
-                        <div class="cover-title">
-                            @yield('title-link')
-                        </div>
-                        <div class="raleway-light">
-                            <div>
-                                @yield('links')
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-                @yield('content')
-            @if (!Request::is('wiserei'))
-            </div>
-            @endif
+            @yield('content')
         </div>
-        @yield('vue')
+        <script src="{{ mix('/js/manifest.js') }}"></script>
+        <script src="{{ mix('/js/vendor.js') }}"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 
 </html>

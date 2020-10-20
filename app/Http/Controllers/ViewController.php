@@ -11,16 +11,9 @@ class ViewController extends Controller
 {
     public function index()
     {
-        $url = config('app.url');
+        $appUrl = config('app.url');
 
-        JavaScript::put([
-            'app' => [
-                'url' => $url,
-            ],
-        ]);
-
-
-        return view('index');
+        return view('index', compact('appUrl'));
     }
 
     public function movies()
@@ -35,13 +28,5 @@ class ViewController extends Controller
             'genres' => [],
             'imdbImageUrl' => ''
         ]);
-    }
-
-    public function wiserei(Request $request)
-    {
-        $airtableApiKey = config('services.airtable.apiKey');
-        $airtableWisereiBase = config('services.airtable.wiserei.base');
-
-        return view('wiserei', compact('airtableApiKey', 'airtableWisereiBase'));
     }
 }

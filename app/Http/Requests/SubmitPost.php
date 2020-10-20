@@ -37,7 +37,7 @@ class SubmitPost extends FormRequest
     {
         $validator->after(function ($validator) {
             if ($this->password != config('auth.post.password')) {
-                $validators->errors()->add('password', 'Password is incorrect');
+                $validator->errors()->add('password', 'Password is incorrect');
             }
         });
         return;

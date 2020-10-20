@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styling')
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
-@endsection
-
 @section('content')
     <movie-search
         movies="{{ $movies }}"
@@ -11,10 +7,4 @@
         imageUrl="{{ $tmdbImageUrl }}"
     >
     </movie-search>
-@endsection
-
-@section('vue')
-    <script src="{{ mix('/js/manifest.js') }}"></script>
-    <script src="{{ mix('/js/vendor.js') }}"></script>
-    <script src="{{ mix('/js/app.js') }}"></script>
 @endsection

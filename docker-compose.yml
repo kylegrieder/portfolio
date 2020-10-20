@@ -1,0 +1,52 @@
+version: "3.4"
+
+services:
+  portfolio-app:
+    image: portfolio:fpm
+    environment:
+      PHP_IDE_CONFIG: "serverName=portfolio.test"
+      PHP_OPCACHE_VALIDATE_TIMESTAMPS: 1
+      PHP_OPCACHE_MAX_ACCELERATED_FILES: 10000
+      PHP_OPCACHE_MEMORY_CONSUMPTION: 128
+    external_links:
+      - nginx-proxy:portfolio.test
+    volumes:
+      - ./:/app:cached
+    networks:
+      - default
+
+  portfolio-nginx:
+    image: portfolio:nginx
+    environment:
+      VIRTUAL_HOST: portfolio.test
+      HSTS: "off"
+      HTTPS_METHOD: noredirect
+      APP_DOMAIN: portfolio portfolio.test
+      PHP_FPM_HOST: portfolio-app
+    volumes:
+      - ./:/app:cached
+    depends_on:
+      - portfolio-app
+    networks:
+      - default
+      - fuse-net
+
+  portfolio-db:
+    container_name: portfolio-mysql-5.7
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "33070:3306"
+    volumes:
+      - db_volume:/var/lib/mysql
+    networks:
+      - default
+
+networks:
+  default:
+  fuse-net:
+    external: true
+
+volumes:
+  db_volume:

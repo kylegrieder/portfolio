@@ -1,7 +1,15 @@
 // Colors
-$background: #495466;
-$dark-gray: #495466;
-$light-gray: #677999;
+$background: #44475a;
+$background-dark: #282a36;
+$light-gray: #6272a4;
+$off-white: #f8f8f2;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
 
 // Typography
 $font-family-sans-serif: Raleway, sans-serif;
@@ -13,24 +21,31 @@ $spacer: 1rem !default;
 $display5-size: 2.5rem !default;
 $display5-weight: 300 !default;
 
-// Wiserei
-$wiserei-base-color: #1FA9FF;
-
 // Sizing
-
-// This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $sizes: map-merge(
     (
-            10: 10%,
-            15: 15%,
-            20: 20%,
-            25: 25%,
-            50: 50%,
-            75: 75%,
-            100: 100%,
-            auto: auto
+        10: 10%,
+        15: 15%,
+        20: 20%,
+        35: 35%,
+        auto: auto
     ),
     $sizes
+);
+
+// Coloring
+$theme-colors: () !default;
+$theme-colors: map-merge(
+    (
+        'cyan': $cyan,
+        'green': $green,
+        'orange': $orange,
+        'pink': $pink,
+        'purple': $purple,
+        'red': $red,
+        'yellow': $yellow,
+        'off-white': $off-white,
+    ),
+    $theme-colors
 );

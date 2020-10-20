@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <b-container>
         <b-row>
             <b-col cols="9">
                 <b-row class="my-3" v-for="movie in movies" :key="movie.id">
@@ -22,7 +22,7 @@
                 </b-list-group>
             </b-col>
         </b-row>
-    </div>
+    </b-container>
 </template>
 
 <script>

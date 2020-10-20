@@ -1,9 +1,43 @@
-// vue on the window
-window.Vue = require('vue')
-require('vuex')
-require('./bootstrap')
+// window objects
+import Vue from 'vue'
 
+import _ from 'lodash'
+import axios from 'axios'
+import jQuery from 'jquery'
+import marked from 'marked'
+import moment from 'moment'
+
+const $ = jQuery
+const Popper = require('@popperjs/core')
+
+const imports = {
+    _,
+    $,
+    axios,
+    events: new Vue(),
+    jQuery,
+    marked,
+    moment,
+    Popper
+}
+
+Object.assign(window, imports)
+
+import('bootstrap')
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+
+// Vue plugins //
 // Vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
 import store from './store.js'
 
 // Vue Router
@@ -12,55 +46,28 @@ Vue.use(VueRouter)
 import router from './routes.js'
 
 // Bootstrap Vue
-import BootstrapVue from 'bootstrap-vue'
+import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
-// new Vue instance for event emitting and listening.
-window.events = new Vue()
-
-// moment for date stuffs
-window.moment = require('moment')
-
-// date formats constant
+// date formats constants
 import dateFormats from './constants/dateFormats'
 window.DATE_FORMATS = dateFormats
 
-// vue markdown support
-import VueMarkdown from 'vue-markdown'
-Vue.component('vue-markdown', VueMarkdown)
-
-Vue.component('movie-search', require('./views/MovieSearch'))
-
 // component registration
-const files = require.context('./components', true, /\.vue$/)
-files.keys().forEach((key) => {
+const requireComponent = require.context('./components', true, /\.vue$/)
+requireComponent.keys().forEach((fileName) => {
+    const config = requireComponent(fileName)
+    const name = fileName.split('/').pop().split('.')[0]
 
-    let fileName = '';
-    let path = key.replace(/(\.\/|\.vue)/g, '')
-
-    fileName = _.last(path.split('/')) // necessary for nested folders to work.
-    Vue.component(fileName, require('./components/' + path))
+    Vue.component(name, config.default || config)
 })
 
 const app = new Vue({
     el: '#app',
     store,
     router,
-
-    methods: {
-        getPhotos() {
-            axios.get('/api/photos').then(response => {
-                store.state.photos = response.data
-            })
-        },
-        getPosts() {
-            axios.get('/api/posts').then(response => {
-                store.state.posts = response.data
-            })
-        },
-    },
     created() {
-        this.getPhotos()
-        this.getPosts()
+        this.$store.dispatch('retrievePosts')
     }
 });

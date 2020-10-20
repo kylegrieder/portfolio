@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <b-container>
+        <nav-header/>
         <div class="row mb-3">
             <div class="text-justify col-5">
                 Post Title:
@@ -24,20 +25,26 @@
         <b-collapse id="markdown">
             <div class="row mb-2">
                 <div class="col-12">
-                    <vue-markdown class="text-justify" :source="post"></vue-markdown>
+                    <div v-html="compiledMarkdown"></div>
                 </div>
             </div>
         </b-collapse>
-    </div>
+    </b-container>
 </template>
 
 <script>
     export default {
+        name: 'NewPost',
         data() {
             return {
                 post: '',
                 title: '',
                 password: ''
+            }
+        },
+        computed: {
+            compiledMarkdown() {
+                return marked(this.post, { sanitize: true })
             }
         },
         methods: {
