@@ -10,6 +10,9 @@
             <a href="https://github.com/kylegrieder" target="_blank">
                 <img class="svg mx-1 my-2" src="/images/github.svg" alt="github"/>
             </a>
+            <a href="mailto:kyle.grieder@gmail.com" target="_blank">
+                <img class="svg mx-1 my-2" src="/images/envelope.svg" alt="email"/>
+            </a>
         </b-row>
 
         <b-row class="justify-content-center">
